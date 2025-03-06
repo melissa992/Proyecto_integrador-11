@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <ul>
         <li>
-          &copy; 2025
+          &copy; 2025 CM SOFTWARE
         </li>
       </ul>
     </footer>
