@@ -11,6 +11,9 @@ const Header = () => {
         <NavLink to="perfil" end>
           Perfil
         </NavLink>
+        <NavLink to="/" end>
+          Quiz
+        </NavLink>
       </nav>
     </header>
   );
