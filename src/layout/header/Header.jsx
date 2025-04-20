@@ -5,14 +5,21 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <NavLink to="/" end>
+        <NavLink to="/inicio" end>
           Inicio
         </NavLink>
-        <NavLink to="perfil" end>
-          Perfil
+        <NavLink to="corazon" end>
+          El corazón
         </NavLink>
-        <NavLink to="/" end>
+        <NavLink to="enfermedades" end>
+          Enfermedades
+        </NavLink>
+        <NavLink to="quiz" end>
           Quiz
+        </NavLink>
+
+        <NavLink to="/" end className={"cerrar-sesion-link"}>
+          Cerrar Sesión
         </NavLink>
       </nav>
     </header>
