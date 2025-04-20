@@ -10,6 +10,7 @@ nav{
     gap: 1rem;
 }
 
+
 .nav-container {
     display: flex;
     justify-content: space-between;
@@ -18,4 +19,10 @@ nav{
   
   .cerrar-sesion-link {
     margin-left: auto;
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+
   }
