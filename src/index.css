@@ -1,8 +1,8 @@
 :root {
-  --color-primary: #c35c68;
+  --color-primary: #000000;
   --color-secondary: #c35c68;
-  --color-tertiary: #332b2c;
-  --color-neutral: rgb(26, 6, 6);
+  --color-tertiary: #ffffff;
+  --color-neutral: rgb(255, 255, 255);
 }
 
 html,
