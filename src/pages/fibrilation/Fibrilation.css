@@ -1,0 +1,174 @@
+/* Estilo general */
+    
+.arritmia-title {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    text-align: center; /* Centrar el texto */
+    padding: 80px 0; /* Espaciado superior e inferior */
+    font-size: 5rem; /* Tamaño de fuente */
+    width: 100%; /* Ocupa todo el ancho */
+    justify-content: flex-start;
+    align-items: center;
+    margin: 40px 0 0; /* Espaciado superior de 20px */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    display:flex;
+  }
+
+  .arritmia-details {
+    background-color: rgb(255, 255, 255); /* Fondo negro */
+    color: white; /* Texto blanco */
+    padding: 100px; /* Espaciado alrededor del texto */
+    font-size: 3rem; /* Tamaño de fuente más pequeño */
+    width: 100%; /* Ocupa todo el ancho */
+    margin: 20px 0 0; /* Espaciado superior de 20px */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+  }
+  .arritmia-type {
+    background-color: black; /* Fondo negro */
+    color: rgb(255, 255, 255); /* Texto blanco */
+    padding: 150px; /* Espaciado alrededor del texto */
+    font-size: 3rem; /* Tamaño de fuente más pequeño */
+    width: 100%; /* Ocupa todo el ancho */
+    margin: 20px 0 0; /* Espaciado superior de 20px */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .arritmia-causes {
+    background-color: rgb(255, 255, 255); /* Fondo negro */
+    color: rgb(255, 255, 255); /* Texto blanco */
+    padding: 150px; /* Espaciado alrededor del texto */
+    font-size: 3rem; /* Tamaño de fuente más pequeño */
+    width: 100%; /* Ocupa todo el ancho */
+    margin: 20px 0 0; /* Espaciado superior de 20px */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    display: flex;
+  }
+
+  .arritmia-sintomas {
+    background-color: rgb(0, 0, 0); /* Fondo negro */
+    color: rgb(255, 255, 255); /* Texto blanco */
+    padding: 150px; /* Espaciado alrededor del texto */
+    font-size: 3rem; /* Tamaño de fuente más pequeño */
+    width: 100%; /* Ocupa todo el ancho */
+    margin: 20px 0 0; /* Espaciado superior de 20px */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    display: flex;
+  }
+
+
+  .arritmia-tratamientos {
+    background-color: rgb(255, 255, 255); /* Fondo negro */
+    color: rgb(255, 255, 255); /* Texto blanco */
+    padding: 150px; /* Espaciado alrededor del texto */
+    font-size: 3rem; /* Tamaño de fuente más pequeño */
+    width: 100%; /* Ocupa todo el ancho */
+    margin: 20px 0 0; /* Espaciado superior de 20px */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+    display: flex;
+  }
+  
+  /* Texto dentro de las secciones */
+  .arritmia-title h1 {
+    font-size: 5rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .arritmia-type h2 {
+    font-size: 4rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  
+  .arritmia-sintomas h2 {
+    font-size: 4rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  
+  .arritmia-tratamientos h2 {
+    font-size: 4rem;
+    color: #000000;
+    margin-bottom: 10px;
+  }
+
+   .arritmia-sintomas h2 {
+    font-size: 4rem;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+  .arritmia-type p {
+    font-size: 5rex;
+    color: #ffffff; /* Texto gris para descripción */
+    line-height: 1.8;
+    text-align: left;
+  }
+  .arritmia-details p {
+    font-size: 5rex;
+    color: #000000; /* Texto gris para descripción */
+    line-height: 1.8;
+    text-align: left;
+  }
+  
+  .arritmia-causes p {
+    font-size: 5rex;
+    color: #000000; /* Texto gris para descripción */
+    line-height: 1.8;
+    text-align: left;
+  }
+  
+  .arritmia-sintomas p {
+    font-size: 5rex;
+    color: #ffffff; /* Texto gris para descripción */
+    line-height: 1.8;
+    text-align: left;
+  }
+
+  .arritmia-tratamientos p {
+    font-size: 5rex;
+    color: #000000; /* Texto gris para descripción */
+    line-height: 1.8;
+    text-align: left;
+  }
+ 
+  /* Estilo para las imágenes 3D */
+.model-viewer {
+    width: 100%; /* Ajusta el ancho al contenedor */
+    max-width: 300px; /* Ancho máximo */
+    height: auto; /* Altura fija */
+    margin: 20px auto; /* Centra el modelo y agrega espaciado */
+    display: block; /* Asegura que sea un bloque */
+ 
+  }
+
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .arritmia-title {
+      padding: 10px;
+    }
+  
+    .arritmia-type {
+      padding: 15px;
+    }
+  
+    
+    .arritmia-details {
+      padding: 15px;
+    }
+
+    .arritmia-causes {
+      padding: 15px;
+    }
+
+    .arritmia-sintomas {
+     padding: 15px;
+    }
+
+    .arritmia-tratamientos {
+        padding: 15px;
+    }
+  
+  }

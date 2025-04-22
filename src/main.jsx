@@ -10,6 +10,7 @@ import Inicio from "./pages/inicio/Inicio";
 import Corazon from "./pages/corazon/Corazon";
 import Quiz from "./pages/quiz/Quiz";
 import CerrarSesion from "./pages/cerrar-sesion/CerrarSesion";
+import Fibrilation from "./pages/fibrilation/Fibrilation";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<Home />} />
         <Route path="/perfil" element={<Profile />} />
         <Route path="/arritmia" element={<Arritmia />} />
+        <Route path="/fibrilacion" element={<Fibrilation />} />
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/corazon" element={<Corazon />} />
         <Route path="/quiz" element={<Quiz />} />
