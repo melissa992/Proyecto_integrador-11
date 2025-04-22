@@ -1,0 +1,57 @@
+.corazon-title {
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto blanco */
+    padding: 300px 0; /* Espaciado superior e inferior */
+    font-size: 5rem; /* Tamaño de fuente */
+    width: 100%; /* Ocupa todo el ancho */
+    justify-content: flex-start;
+    align-items: center;
+    margin: 50px 0 0; /* Elimina el margen superior */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+.description-title {
+    background-color: rgb(255, 255, 255); /* Fondo negro */
+    color: rgb(0, 0, 0); /* Texto blanco */
+    padding: 300px 0; /* Espaciado superior e inferior */
+    font-size: 1rem; /* Tamaño de fuente */
+    width: 100%; /* Ocupa todo el ancho */
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0; /* Elimina el margen superior */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+.experience-title {
+    background-color: rgb(255, 255, 255); /* Fondo negro */
+    color: rgb(0, 0, 0); /* Texto blanco */
+    padding: 300px 0; /* Espaciado superior e inferior */
+    font-size: 3rem; /* Tamaño de fuente */
+    width: 100%; /* Ocupa todo el ancho */
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0; /* Elimina el margen superior */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+
+.description-title h2 {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .description-title p {
+    font-size: 3rex;
+    color: #000000; /* Texto gris para descripción */
+    line-height: 1.8;
+    text-align: center;
+  }
+
+  .experience-title h2 {
+    font-size: 3rem;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: center;
+  }
