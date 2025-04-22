@@ -1,8 +1,19 @@
 import { NavLink } from "react-router";
+import { useState } from "react"; // Importa useState para manejar el estado
 import "./Header.css";
-import logo from "/public/cm.png"; // Ajusta la ruta al ícono según tu estructura
+import logo from "/public/cm.png"; // Ajusta la ruta según tu estructura
 
 const Header = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado para manejar la autenticación
+
+  const handleLogout = () => {
+    setIsAuthenticated(false); // Cambia el estado a no autenticado
+  };
+
+  const handleLogin = () => {
+    setIsAuthenticated(true); // Cambia el estado a autenticado
+  };
+
   return (
     <header>
       <nav>
@@ -13,16 +24,39 @@ const Header = () => {
         <NavLink to="corazon" end>
           El corazón
         </NavLink>
-        <NavLink to="enfermedades" end>
-          Enfermedades
-        </NavLink>
+        <div className="dropdown">
+          <span>Enfermedades</span>
+          <div className="dropdown-content">
+            <NavLink to="arritmia" end>
+              Arritmia
+            </NavLink>
+            <NavLink to="fibrilacion" end>
+              Fibrilación
+            </NavLink>
+          </div>
+        </div>
         <NavLink to="quiz" end>
           Quiz
         </NavLink>
-
-        <NavLink to="/" end className={"cerrar-sesion-link"}>
-          Cerrar Sesión
-        </NavLink>
+        {isAuthenticated ? (
+          <NavLink
+            to="/cerrar-sesion"
+            end
+            className="cerrar-sesion"
+            onClick={handleLogout}
+          >
+            Cerrar Sesión
+          </NavLink>
+        ) : (
+          <NavLink
+            to="/iniciar-sesion"
+            end
+            className="iniciar-sesion"
+            onClick={handleLogin}
+          >
+            Iniciar Sesión
+          </NavLink>
+        )}
       </nav>
     </header>
   );
