@@ -6,11 +6,12 @@ import NotFound from "./pages/not-found/NotFound";
 import Layout from "./layout/Layout";
 import Profile from "./pages/profile/Profile";
 import Arritmia from "./pages/arritmia/Arritmia";
-import Inicio from "./pages/inicio/Inicio";
 import Corazon from "./pages/corazon/Corazon";
 import Quiz from "./pages/quiz/Quiz";
 import CerrarSesion from "./pages/cerrar-sesion/CerrarSesion";
 import Fibrilation from "./pages/fibrilation/Fibrilation";
+import SobreNosotros from "./pages/sobre-nosotros/SobreNosotros";
+import Inicio from "./pages/inicio/Inicio";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -18,9 +19,10 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/perfil" element={<Profile />} />
+        <Route path="/inicio" element={<Inicio />} />
         <Route path="/arritmia" element={<Arritmia />} />
         <Route path="/fibrilacion" element={<Fibrilation />} />
-        <Route path="/inicio" element={<Inicio />} />
+        <Route path="/sobre-nosotros" element={<SobreNosotros />} />
         <Route path="/corazon" element={<Corazon />} />
         <Route path="/quiz" element={<Quiz />} />
         <Route path="/cerrar-sesion" element={<CerrarSesion />} />
