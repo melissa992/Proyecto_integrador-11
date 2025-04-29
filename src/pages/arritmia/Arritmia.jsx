@@ -13,13 +13,6 @@ const Arritmia = () => {
         <h1>
           Enfermedad <br /> Arritmia Cardíaca
         </h1>
-        <model-viewer
-          className="model-viewer"
-          src={Exercise}
-          alt="Representación 3D de arritmia"
-          auto-rotate
-          camera-controls
-        ></model-viewer>
       </div>
 
       <div className="cards">

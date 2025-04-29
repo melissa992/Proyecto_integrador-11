@@ -1,22 +1,25 @@
-header{
+header {
   background-color: blue;
-  padding: 40px;
-  font-size: 40px;
-  border-radius: 0% 0% 70px 70px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgb(246, 246, 246);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    color: black;
-  }
+  padding: 3px; /* Equivale a ~32px según el root font-size */
+  font-size: 15px; /* Escalable */
+  border-radius: 0 0 1rem 1rem; /* 70px */
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
-nav{
+.header {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(246, 246, 246);
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  color: black;
+  padding: 1rem;
+  width: auto
+}
+
+nav {
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 2rem;
 }
@@ -25,33 +28,32 @@ nav{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 .cerrar-sesion,
 .iniciar-sesion {
-  margin-left: auto; /* Empuja el enlace hacia la derecha */
-  color: white; /* Color del texto */
-  text-decoration: none; /* Elimina el subrayado */
-  font-weight: bold; /* Opcional: hace el texto más destacado */
+  margin-left: auto;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+ 
 }
 
 .cerrar-sesion:hover,
 .iniciar-sesion:hover {
-  color: #f1f1f1; /* Cambia el color al pasar el cursor */
+  color: #f1f1f1;
 }
-
 
 .logo-container {
   display: flex;
   align-items: center;
 }
 
-
 .logo {
-  width: 60px;
-  height: 60px;
-  margin-right: 16px;
-
+  width: clamp(40px, 5vw, 20px);
+  height: clamp(40px, 5vw, 20px);
+  margin-right: 1rem;
 }
 
 .dropdown {
@@ -63,13 +65,12 @@ nav{
   display: none;
   position: absolute;
   background-color: rgb(246, 246, 246);
-  min-width: 120px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  min-width: 8rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
   z-index: 100;
   flex-direction: column;
-  gap: 30px;
- 
+  gap: 2rem;
 }
 
 .dropdown:hover .dropdown-content {
@@ -80,6 +81,7 @@ nav{
 .dropdown-btn {
   cursor: pointer;
   font-weight: normal;
+  font-size: 1rem;
 }
 
 .dropdown-content a {
@@ -93,6 +95,6 @@ nav{
 
 @media (max-width: 768px) {
   .header {
-    padding: 10px;
+    padding: 0.625rem; /* ~10px */
   }
 }

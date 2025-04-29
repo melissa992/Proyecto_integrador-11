@@ -14,84 +14,77 @@ const Fibrilation = () => {
           Enfermedad <br /> Fibrilación Cardíaca
         </h1>
       </div>
-      <div className="arritmia-details">
-        <h2>Que es?</h2>
-        <p>
-          La fibrilación es una contracción o temblor incontrolable de fibras
-          musculares (fibrillas). Cuando ocurre en las cámaras bajas del
-          corazón, se denomina fibrilación ventricular o FV. Durante la FV, la
-          sangre no se bombea desde el corazón. Esto puede resultar en muerte
-          cardíaca súbita.
-        </p>
-      </div>
-      <div className="arritmia-type">
-        <p>
-          <h2>Tipos de fibrilación</h2>
-          La aparición de la Fibrilación Auricular puede asociarse a:
-          Predisposición genética Hipertensión arterial Haber sufrido un Infarto
-          de Miocardio Haberse sometido a una cirugía cardíaca Diabetes
-        </p>
+      <div className="cards-fibrilation">
         <model-viewer
-          className="model-viewer"
+          className="cards-img"
           src={Dolor}
           alt="Representación 3D de arritmia"
           auto-rotate
           camera-controls
         ></model-viewer>
+        <div className="cards-text">
+          <h2>¿Qué es la Fibrilacion?</h2>
+          <p>
+            La fibrilación es una contracción o temblor incontrolable de fibras
+            musculares (fibrillas). Cuando ocurre en las cámaras bajas del
+            corazón, se denomina fibrilación ventricular o FV. Durante la FV, la
+            sangre no se bombea desde el corazón. Esto puede resultar en muerte
+            cardíaca súbita.
+          </p>
+        </div>
       </div>
-
-      <div className="arritmia-causes">
-        <p>
-          <h2>Causas</h2>
-          La aparición de la Fibrilación Auricular puede asociarse a:
-          Predisposición genética Hipertensión arterial Haber sufrido unInfarto
-          de Miocardio Haberse sometido a una cirugía cardíaca Diabetes.
-        </p>
+      <div className="cards">
         <model-viewer
-          className="model-viewer"
-          src={Desfibrilador}
-          alt="Representación 3D de arritmia"
-          auto-rotate
-          camera-controls
-        ></model-viewer>
-      </div>
-      <div className="arritmia-sintomas">
-        <p>
-          <h2>Sintomas</h2>
-          Aunque no siempre provoca síntomas, los más comunes son: Aceleración
-          del ritmo cardíaco y palpitaciones (latido rápido e irregular del
-          corazón) Dolor y presión en el pecho Cansancio extremo Mareos o
-          vértigo que pueden llegar al desmayo Empeoramiento de otras
-          enfermedades a las que se asocia:Insuficiencia Cardíaca,
-          hipertensión,enfermedades de las válvulas cardíacas
-        </p>
-        <model-viewer
-          className="model-viewer"
+          className="cards-img"
           src={Electro}
           alt="Representación 3D de arritmia"
           auto-rotate
           camera-controls
         ></model-viewer>
+        <div className="cards-text">
+          <h2>Síntomas</h2>
+          <p>
+            Los síntomas pueden variar según el tipo de arritmia, pero algunos
+            de los más frecuentes son: palpitaciones, mareos, fatiga, dolor en
+            el pecho, dificultad para respirar y desmayos.
+          </p>
+        </div>
       </div>
-      <div className="arritmia-tratamientos">
-        <p>
-          <h2>Tratamientos</h2>
-          El tratamiento depende de la gravedad y de la frecuencia de los
-          síntomas y de la existencia o no de enfermedad cardiovascular
-          asociada. Su objetivo es intentar restaurar el ritmo normal del
-          corazón (ritmo sinusal): Cardioversión:Procedimiento para corregir la
-          arritmia y recuperar el ritmo normal del corazón. Puede realizarse a
-          través de medicamentos antiarrítmicos (cardioversión farmacológica) o,
-          en caso esta arritmia (hipertensión,Insuficiencia Cardíaca…) y
-          controlar los factores de riesgo.
-        </p>
+
+      <div className="cards">
         <model-viewer
-          className="model-viewer"
+          className="cards-img"
+          src={Desfibrilador}
+          alt="Representación 3D de arritmia"
+          auto-rotate
+          camera-controls
+        ></model-viewer>
+        <div className="cards-text">
+          <h2>Tratamiento</h2>
+          <p>
+            El tratamiento depende del tipo y gravedad de la arritmia:
+            medicamentos antiarrítmicos, cardioversión eléctrica, marcapasos,
+            desfibrilador implantable (DAI), y ablación por catéter.
+          </p>
+        </div>
+      </div>
+
+      <div className="cards">
+        <model-viewer
+          className="cards-img"
           src={Food}
           alt="Representación 3D de arritmia"
           auto-rotate
           camera-controls
         ></model-viewer>
+        <div className="cards-text">
+          <h2>Prevención y autocuidado</h2>
+          <p>
+            Alimentación saludable, ejercicio moderado, evitar sustancias
+            dañinas, controlar el estrés y dormir bien son claves para prevenir
+            las arritmias.
+          </p>
+        </div>
       </div>
     </>
   );
