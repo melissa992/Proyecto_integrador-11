@@ -4,7 +4,7 @@ import "@google/model-viewer";
 import Desfibrilador from "../../assets/fibrilation/Defibillator.glb"; // Ajusta la ruta según tu estructura
 import Dolor from "../../assets/fibrilation/Pain.glb"; // Ajusta la ruta según tu estructura
 import Electro from "../../assets/fibrilation/Ekg.glb"; // Ajusta la ruta según tu estructura
-import Food from "../../assets/fibrilation/Food.glb"; // Ajusta la ruta según tu estructura
+import Food from "../../assets/fibrilation/FOOD.glb"; // Ajusta la ruta según tu estructura
 
 
 const Fibrilation = () => {
