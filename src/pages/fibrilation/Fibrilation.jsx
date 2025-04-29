@@ -1,10 +1,11 @@
 import React from "react";
 import "./Fibrilation.css";
 import "@google/model-viewer";
-import Desfibrilador from "../../assets/fibrilation/DESFIBRILADOR.glb"; // Ajusta la ruta según tu estructura
-import Dolor from "../../assets/fibrilation/DOLOR.glb"; // Ajusta la ruta según tu estructura
-import Electro from "../../assets/fibrilation/ELECTRO.glb"; // Ajusta la ruta según tu estructura
+import Desfibrilador from "../../assets/fibrilation/Defibillator.glb"; // Ajusta la ruta según tu estructura
+import Dolor from "../../assets/fibrilation/Pain.glb"; // Ajusta la ruta según tu estructura
+import Electro from "../../assets/fibrilation/Ekg.glb"; // Ajusta la ruta según tu estructura
 import Food from "../../assets/fibrilation/FOOD.glb"; // Ajusta la ruta según tu estructura
+
 
 const Fibrilation = () => {
   return (
@@ -18,9 +19,13 @@ const Fibrilation = () => {
         <model-viewer
           className="cards-img"
           src={Dolor}
-          alt="Representación 3D de arritmia"
+          alt="Dolor fibrilacion"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0.9"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
           <h2>¿Qué es la Fibrilacion?</h2>
@@ -35,11 +40,17 @@ const Fibrilation = () => {
       </div>
       <div className="cards">
         <model-viewer
-          className="cards-img"
-          src={Electro}
-          alt="Representación 3D de arritmia"
+          className="model-viewer"
+          src={Desfibrilador}
+          alt="Desfribliador 3D"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0"
+          shadow-scale="2"
+          camera-target="0m -0.1m 0m"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
           <h2>Síntomas</h2>
@@ -53,11 +64,17 @@ const Fibrilation = () => {
 
       <div className="cards">
         <model-viewer
-          className="cards-img"
-          src={Desfibrilador}
-          alt="Representación 3D de arritmia"
+          className="model-viewer"
+          src={Electro}
+          alt="Representación 3D electrocardiograma"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0"
+          shadow-scale="2"
+          camera-target="0m -0.1m 0m"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
           <h2>Tratamiento</h2>
@@ -73,9 +90,15 @@ const Fibrilation = () => {
         <model-viewer
           className="cards-img"
           src={Food}
-          alt="Representación 3D de arritmia"
+          alt="Comida saludable"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0"
+          shadow-scale="2"
+          camera-target="0m -0.1m 0m"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
           <h2>Prevención y autocuidado</h2>
