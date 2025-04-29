@@ -21,9 +21,6 @@ const Header = () => {
         <NavLink to="/inicio" end>
           Inicio
         </NavLink>
-        <NavLink to="corazon" end>
-          El corazón
-        </NavLink>
         <div className="dropdown">
           <span>Enfermedades</span>
           <div className="dropdown-content">
@@ -36,27 +33,19 @@ const Header = () => {
           </div>
         </div>
         <NavLink to="quiz" end>
-          Quiz
+          Quiz Interactivo
         </NavLink>
-        {isAuthenticated ? (
-          <NavLink
-            to="/cerrar-sesion"
-            end
-            className="cerrar-sesion"
-            onClick={handleLogout}
-          >
-            Cerrar Sesión
-          </NavLink>
-        ) : (
-          <NavLink
-            to="/iniciar-sesion"
-            end
-            className="iniciar-sesion"
-            onClick={handleLogin}
-          >
-            Iniciar Sesión
-          </NavLink>
-        )}
+        <NavLink to="sobre-nosotros" end>
+          Sobre nosotros{" "}
+        </NavLink>
+        <NavLink
+          to="/iniciar-sesion"
+          end
+          className="iniciar-sesion"
+          onClick={handleLogin}
+        >
+          Iniciar Sesión / Registrarse
+        </NavLink>
       </nav>
     </header>
   );

@@ -25,23 +25,8 @@ const Arritmia = () => {
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
       </div>
-      <div className="arritmia-details">
-        <h2>Que es?</h2>
-        <p>
-          Una arritmia cardíaca es un latido irregular del corazón. Esto ocurre
-          cuando no funcionan adecuadamente los impulsos eléctricos que le
-          ordenan al corazón latir. Puede que el corazón lata demasiado rápido o
-          demasiado lento. También puede ocurrir que el patrón del ritmo
-          cardíaco sea irregular.
-        </p>
-      </div>
-      <div className="arritmia-type">
-        <p>
-          <h2>Tipos de arritmias</h2>
-          Las principales causas incluyen estrés, enfermedades subyacentes y
-          desequilibrios en los electrolitos del cuerpo, como el potasio y el
-          calcio.
-        </p>
+
+      <div className="cards">
         <model-viewer
           className="model-viewer"
           src={Exercise}
@@ -53,15 +38,19 @@ const Arritmia = () => {
           shadow-softness="0.9"
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
+        <div className="cards-text">
+          <h2>¿Qué es la Arritmia?</h2>
+          <p>
+            Una arritmia cardíaca es un latido irregular del corazón. Esto
+            ocurre cuando no funcionan adecuadamente los impulsos eléctricos que
+            le ordenan al corazón latir. Puede que el corazón lata demasiado
+            rápido o demasiado lento. También puede ocurrir que el patrón del
+            ritmo cardíaco sea irregular.
+          </p>
+        </div>
       </div>
 
-      <div className="arritmia-causes">
-        <p>
-          <h2>Causas</h2>
-          Las principales causas incluyen estrés, enfermedades subyacentes y
-          desequilibrios en los electrolitos del cuerpo, como el potasio y el
-          calcio.
-        </p>
+      <div className="cards">
         <model-viewer
           className="model-viewer"
           src={Pain}
@@ -73,16 +62,19 @@ const Arritmia = () => {
           shadow-softness="0.9"
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
+        <div className="cards-text">
+          <h2>Síntomas</h2>
+          <p>
+            Los síntomas pueden variar según el tipo de arritmia, pero algunos
+            de los más frecuentes son: palpitaciones, mareos, fatiga, dolor en
+            el pecho, dificultad para respirar y desmayos.
+          </p>
+        </div>
       </div>
-      <div className="arritmia-sintomas">
-        <p>
-          <h2>Sintomas</h2>
-          Las principales causas incluyen estrés, enfermedades subyacentes y
-          desequilibrios en los electrolitos del cuerpo, como el potasio y el
-          calcio.
-        </p>
+
+      <div className="cards">
         <model-viewer
-          className="model-viewer"
+          className="cards-img"
           src={Pacemaker}
           alt="Marcapasos 3D"
           auto-rotate
@@ -92,16 +84,19 @@ const Arritmia = () => {
           shadow-softness="0.9"
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
+        <div className="cards-text">
+          <h2>Tratamiento</h2>
+          <p>
+            El tratamiento depende del tipo y gravedad de la arritmia:
+            medicamentos antiarrítmicos, cardioversión eléctrica, marcapasos,
+            desfibrilador implantable (DAI), y ablación por catéter.
+          </p>
+        </div>
       </div>
-      <div className="arritmia-tratamientos">
-        <p>
-          <h2>Tratamientos</h2>
-          Las principales causas incluyen estrés, enfermedades subyacentes y
-          desequilibrios en los electrolitos del cuerpo, como el potasio y el
-          calcio.
-        </p>
+
+      <div className="cards">
         <model-viewer
-          className="model-viewer"
+          className="cards-img"
           src={Food}
           alt="Comida 3D"
           auto-rotate
@@ -111,6 +106,14 @@ const Arritmia = () => {
           shadow-softness="0.9"
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
+        <div className="cards-text">
+          <h2>Prevención y autocuidado</h2>
+          <p>
+            Alimentación saludable, ejercicio moderado, evitar sustancias
+            dañinas, controlar el estrés y dormir bien son claves para prevenir
+            las arritmias.
+          </p>
+        </div>
       </div>
     </>
   );
