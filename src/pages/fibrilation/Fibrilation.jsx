@@ -79,9 +79,15 @@ const Fibrilation = () => {
         <model-viewer
           className="model-viewer"
           src={Electro}
-          alt="Representación 3D de arritmia"
+          alt="Representación 3D electrocardiograma"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0"
+          shadow-scale="2"
+          camera-target="0m -0.1m 0m"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
       </div>
       <div className="arritmia-tratamientos">
