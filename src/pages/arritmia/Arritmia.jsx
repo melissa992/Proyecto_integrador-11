@@ -16,19 +16,27 @@ const Arritmia = () => {
         <model-viewer
           className="model-viewer"
           src={Exercise}
-          alt="Representación 3D de arritmia"
+          alt="Ejercicio 3D"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0.9"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
       </div>
 
       <div className="cards">
         <model-viewer
-          className="cards-img"
-          src={Pain}
-          alt="Representación 3D de arritmia"
+          className="model-viewer"
+          src={Exercise}
+          alt="Ejercicio 3D"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0.9"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
           <h2>¿Qué es la Arritmia?</h2>
@@ -44,11 +52,15 @@ const Arritmia = () => {
 
       <div className="cards">
         <model-viewer
-          className="cards-img"
-          src={Exercise}
-          alt="Representación 3D de arritmia"
+          className="model-viewer"
+          src={Pain}
+          alt="Dolor arritmia"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0.9"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
           <h2>Síntomas</h2>
@@ -64,9 +76,13 @@ const Arritmia = () => {
         <model-viewer
           className="cards-img"
           src={Pacemaker}
-          alt="Representación 3D de arritmia"
+          alt="Marcapasos 3D"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0.9"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
           <h2>Tratamiento</h2>
@@ -82,9 +98,13 @@ const Arritmia = () => {
         <model-viewer
           className="cards-img"
           src={Food}
-          alt="Representación 3D de arritmia"
+          alt="Comida 3D"
           auto-rotate
           camera-controls
+          exposure="1.2"
+          shadow-intensity="1"
+          shadow-softness="0.9"
+          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
           <h2>Prevención y autocuidado</h2>
