@@ -13,17 +13,6 @@ const Arritmia = () => {
         <h1>
           Enfermedad <br /> Arritmia Cardíaca
         </h1>
-        <model-viewer
-          className="model-viewer"
-          src={Exercise}
-          alt="Ejercicio 3D"
-          auto-rotate
-          camera-controls
-          exposure="1.2"
-          shadow-intensity="1"
-          shadow-softness="0.9"
-          environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
-        ></model-viewer>
       </div>
 
       <div className="cards">
