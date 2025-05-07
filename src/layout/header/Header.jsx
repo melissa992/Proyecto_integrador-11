@@ -1,47 +1,47 @@
 import { NavLink } from "react-router";
-import { useState } from "react"; // Importa useState para manejar el estado
+import { useState } from "react";
 import "./Header.css";
-import logo from "/public/cm.png"; // Ajusta la ruta según tu estructura
+import logo from "/public/cm.png"; // Asegúrate de que la ruta sea correcta
 
 const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado para manejar la autenticación
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogout = () => {
-    setIsAuthenticated(false); // Cambia el estado a no autenticado
+    setIsAuthenticated(false);
   };
 
   const handleLogin = () => {
-    setIsAuthenticated(true); // Cambia el estado a autenticado
+    setIsAuthenticated(true);
   };
 
   return (
     <header>
       <nav>
         <img src={logo} alt="CM Software" className="logo" />
-        <NavLink to="/inicio" end>
+        <NavLink to="/inicio" end className="navlink">
           Inicio
         </NavLink>
         <div className="dropdown">
           <span>Enfermedades</span>
           <div className="dropdown-content">
-            <NavLink to="arritmia" end>
+            <NavLink to="arritmia" end className="navlink">
               Arritmia
             </NavLink>
-            <NavLink to="fibrilacion" end>
+            <NavLink to="fibrilacion" end className="navlink">
               Fibrilación
             </NavLink>
           </div>
         </div>
-        <NavLink to="quiz" end>
+        <NavLink to="quiz" end className="navlink">
           Quiz Interactivo
         </NavLink>
-        <NavLink to="sobre-nosotros" end>
-          Sobre nosotros{" "}
+        <NavLink to="sobre-nosotros" end className="navlink">
+          Sobre nosotros
         </NavLink>
         <NavLink
           to="/iniciar-sesion"
           end
-          className="iniciar-sesion"
+          className="navlink iniciar-sesion"
           onClick={handleLogin}
         >
           Iniciar Sesión / Registrarse
