@@ -28,8 +28,14 @@
     font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: bold;
     text-align: center;
+    
   }
-  
+  .cards-texto h2:hover {
+    text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0, 0, 0, 0.1);
+    transform: perspective(600px) rotateX(4deg);
+    font-weight: 800;
+    color: #ff0606;
+  }
   .cards-texto p {
     font-size: clamp(1rem, 2.5vw, 2rem);
     color: #000000;

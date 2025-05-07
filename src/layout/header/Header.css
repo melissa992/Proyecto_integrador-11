@@ -1,20 +1,34 @@
 header {
   background-color: blue;
-  padding: 3px; /* Equivale a ~32px según el root font-size */
-  font-size: 15px; /* Escalable */
-  border-radius: 0 0 1rem 1rem; /* 70px */
+  padding: 12px; /* Equivale a ~32px según el root font-size */
+  font-size: 17px; /* Escalable */
+  border-radius: 0 0 18% 18%; /* 70px */
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+
+  /* NUEVO: hacer el header fijo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 0, 255, 0.2); /* Sombra en texto */
+}
+
+/* Espacio debajo del header para evitar que se sobreponga */
+main {
+  margin-top: 80px; /* Ajusta si tu header es más alto */
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(246, 246, 246);
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   color: black;
   padding: 1rem;
-  width: auto
+  width: auto;
+  font-weight: bold; /* Aumentar el peso de la fuente para el efecto 3D */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 0, 255, 0.2); /* Efecto 3D */
 }
 
 nav {
@@ -22,6 +36,8 @@ nav {
   justify-content: flex-start;
   align-items: center;
   gap: 2rem;
+  font-size: 1.2rem; /* Aumento de tamaño para visibilidad */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 0, 255, 0.3); /* Efecto 3D */
 }
 
 .nav-container {
@@ -31,29 +47,56 @@ nav {
   width: 100%;
 }
 
+.navlink {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold; /* Puedes ajustar el peso de la fuente si lo deseas */
+}
+
+.navlink::after {
+  content: '';
+  position: absolute;
+  bottom: -5px; /* Ajusta la distancia de la línea respecto al texto */
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: #f39c12; /* Color de la línea */
+  transition: width 0.3s ease; /* Transición suave */
+}
+
+.navlink:hover::after {
+  width: 100%; /* La línea se expande cuando el mouse está encima */
+}
+
 .cerrar-sesion,
 .iniciar-sesion {
   margin-left: auto;
   color: white;
   text-decoration: none;
   font-weight: bold;
- 
+  font-size: 15px;
+  padding-right: 2cm;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Efecto 3D en enlaces */
 }
 
 .cerrar-sesion:hover,
 .iniciar-sesion:hover {
   color: #f1f1f1;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 0, 255, 0.2); /* Efecto al pasar */
 }
 
 .logo-container {
   display: flex;
   align-items: center;
+  padding: 1rem;
 }
 
 .logo {
   width: clamp(40px, 5vw, 20px);
   height: clamp(40px, 5vw, 20px);
-  margin-right: 1rem;
+  padding-left: 1.8cm;
 }
 
 .dropdown {
@@ -71,6 +114,7 @@ nav {
   z-index: 100;
   flex-direction: column;
   gap: 2rem;
+  border-radius: 10% 10% 10% 10%;
 }
 
 .dropdown:hover .dropdown-content {
@@ -82,15 +126,21 @@ nav {
   cursor: pointer;
   font-weight: normal;
   font-size: 1rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Efecto 3D */
 }
 
 .dropdown-content a {
   color: black;
   text-decoration: none;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Efecto 3D en enlaces */
 }
 
 .dropdown-content a:hover {
-  background-color: #f1f1f1;
+  background-color: #1a74fb;
+  padding: 0rem;
+  color: white;
+  border-radius: 10% 10% 10% 10%;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(0, 0, 255, 0.2); /* Efecto 3D al pasar */
 }
 
 @media (max-width: 768px) {
