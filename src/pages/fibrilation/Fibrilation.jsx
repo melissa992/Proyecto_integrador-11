@@ -22,9 +22,14 @@ const Fibrilation = () => {
           alt="Dolor fibrilacion"
           auto-rotate
           camera-controls
+          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
+         // environment-image="/hospital_room_1k.hdr"
+          skybox-image="/hospital_room_1k.hdr"
+          style={{ width: '100%', height: '300px' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -45,11 +50,14 @@ const Fibrilation = () => {
           alt="Desfribliador 3D"
           auto-rotate
           camera-controls
+          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
-          shadow-softness="0"
-          shadow-scale="2"
-          camera-target="0m -0.1m 0m"
+          shadow-softness="0.9"
+         // environment-image="/hospital_room_1k.hdr"
+          skybox-image="/hospital_room_1k.hdr"
+          style={{ width: '100%', height: '300px' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -69,11 +77,14 @@ const Fibrilation = () => {
           alt="Representación 3D electrocardiograma"
           auto-rotate
           camera-controls
+          camera-orbit="45deg 90deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
-          shadow-softness="0"
-          shadow-scale="2"
-          camera-target="0m -0.1m 0m"
+          shadow-softness="0.9"
+         // environment-image="/hospital_room_1k.hdr"
+          skybox-image="/hospital_room_1k.hdr"
+          style={{ width: '100%', height: '300px' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -93,11 +104,14 @@ const Fibrilation = () => {
           alt="Comida saludable"
           auto-rotate
           camera-controls
+          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
-          shadow-softness="0"
-          shadow-scale="2"
-          camera-target="0m -0.1m 0m"
+          shadow-softness="0.9"
+         // environment-image="/hospital_room_1k.hdr"
+          skybox-image="/hospital_room_1k.hdr"
+          style={{ width: '100%', height: '300px' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
