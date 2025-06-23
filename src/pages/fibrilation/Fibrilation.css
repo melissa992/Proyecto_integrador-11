@@ -54,6 +54,7 @@ body .arritmia-title {
 
 .cards-text h2 {
   margin-bottom: 10px;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
 }
 
 .cards-text p {
