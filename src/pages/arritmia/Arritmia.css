@@ -16,7 +16,7 @@ body .arritmia-title {
   border-radius: 40px;
   margin: 40px auto;
   gap: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Sombra añadida */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2); /* Sombra añadida */
 }
 
 .cards {
@@ -31,7 +31,7 @@ body .arritmia-title {
   border-radius: 20px;
   background-color: transparent;
   flex-wrap: wrap;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -56,12 +56,12 @@ body .arritmia-title {
 .cards-text h2 {
   margin-bottom: 10px;
   text-shadow:
-    2px 2px 0 #000,
-    4px 4px 10px rgba(0, 0, 0, 0.1); /* Mejora el contraste */
+    1px 1px 0 #bbb, /* Sombra principal muy suave */
+    1px 1px x rgba(0, 0, 0, 0.04); /* Sombra difusa casi imperceptible */
   transform: perspective(600px) rotateX(4deg);
   font-weight: 800;
   transition: transform 0.5s ease;
-  color: #000000; /* Color blanco para mayor contraste */
+  color: #000000;
 }
 
 .cards-text h2:hover {
@@ -89,7 +89,7 @@ body .arritmia-title {
   
 .arritmia-title h1:hover {
   transform: perspective(600px) rotateX(0deg) scale(1.05);
-  color: #9a9c9c; /* Cambio de color al pasar el mouse */
+  color: #ffffff; /* Cambio de color al pasar el mouse */
   text-shadow:
     2px 2px 0 #000,
     4px 4px 10px rgba(0, 0, 0, 0.5); /* Mejora el contraste */
