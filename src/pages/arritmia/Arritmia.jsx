@@ -10,7 +10,7 @@ const Arritmia = () => {
   return (
     <>
       <div className="arritmia-title">
-        <h1>
+        <h1 style={{ color: "white" }}>
           Enfermedad <br /> Arritmia Cardíaca
         </h1>
       </div>
