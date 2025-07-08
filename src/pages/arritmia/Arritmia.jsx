@@ -22,14 +22,14 @@ const Arritmia = () => {
           alt="Ejercicio 3D"
           auto-rotate
           camera-controls
-          camera-orbit="30deg 85deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-orbit="30deg 85deg 25m" // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-         // environment-image="/hospital_room_1k.hdr"
+          // environment-image="/hospital_room_1k.hdr"
           skybox-image="/pine_picnic_1k.hdr"
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -51,14 +51,14 @@ const Arritmia = () => {
           alt="Dolor arritmia"
           auto-rotate
           camera-controls
-          camera-orbit="30deg 85deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-orbit="30deg 85deg 25m" // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-         // environment-image="/hospital_room_1k.hdr"
+          // environment-image="/hospital_room_1k.hdr"
           skybox-image="/pine_picnic_1k.hdr"
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -78,14 +78,14 @@ const Arritmia = () => {
           alt="Marcapasos 3D"
           auto-rotate
           camera-controls
-          camera-orbit="30deg 85deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-orbit="30deg 85deg 25m" // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-         // environment-image="/hospital_room_1k.hdr"
+          // environment-image="/hospital_room_1k.hdr"
           skybox-image="/pine_picnic_1k.hdr"
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -105,14 +105,14 @@ const Arritmia = () => {
           alt="Comida 3D"
           auto-rotate
           camera-controls
-          camera-orbit="30deg 75deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-orbit="30deg 75deg 25m" // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-         // environment-image="/hospital_room_1k.hdr"
+          // environment-image="/hospital_room_1k.hdr"
           skybox-image="/pine_picnic_1k.hdr"
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">

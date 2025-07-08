@@ -1,0 +1,290 @@
+/* HERO SECTION */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 48px 24px;
+  flex-wrap: wrap; /* Para que sea responsivo en pantallas pequeñas */
+}
+.hero-text {
+  flex: 1 1 350px;
+  color: #fff;
+  text-align: left;
+  font-size: 5.0rem;
+  line-height: 1.2;
+  max-width: 600px;
+}
+
+model-viewer {
+  width: 520px !important;
+  height: 520px !important;
+  max-width: 100%;
+  display: block;
+}
+
+/* ARRITMIA TITLE */
+.arritmia-title {
+  background-color: blue;
+  color: white;
+  padding: 0px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-align: center;
+  border-radius: 40px;
+  margin: 40px auto;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.arritmia-title h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  text-shadow:
+    2px 2px 0 #000,
+    4px 4px 10px rgba(0, 0, 0, 0.5);
+  transform: perspective(600px) rotateX(4deg);
+  font-weight: 800;
+  transition: transform 0.3s ease;
+}
+
+.arritmia-title h1:hover {
+  transform: perspective(600px) rotateX(0deg) scale(1.05);
+  color: #9a9c9c;
+}
+
+/* CARDS */
+.cards-principal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 1200px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: transparent;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards-principal:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.cards-principal img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.cards-principal-text {
+  flex: 1;
+  text-align: center;
+  font-size: 2.2rem;
+  color: #000;
+}
+
+.cards-principal-text h2 {
+  margin-bottom: 10px;
+  text-shadow:
+    2px 2px 0 #000,
+    4px 4px 10px rgba(0, 0, 0, 0.1);
+  transform: perspective(600px) rotateX(4deg);
+  font-weight: 800;
+  transition: transform 0.5s ease;
+  font-size: 2.2rem;
+}
+
+.cards-principal-text h2:hover {
+  transform: perspective(600px) rotateX(0deg) scale(1.05);
+}
+
+.cards-principal-text p {
+  font-size: 2.5rem;
+  color: #000;
+}
+
+.quiz-card {
+  position: relative; /* o simplemente elimina la línea de position */
+  top: auto;
+  left: auto;
+  transform: none;
+  z-index: 1;
+  margin: 40px auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  padding: 32px 70px;
+  max-width: 600px;
+  width: 90vw;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 1.5px 6px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.quiz-card:hover,
+.quiz-card:active {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.40), 0 3px 12px rgba(0,0,0,0.18);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.quiz-card button.quiz-btn {
+  display: block;       /* Hace que el botón sea un bloque para que el margin funcione */
+  margin: 20px auto 0;  /* Centra horizontalmente y agrega un margen superior */
+  padding: 12px 24px;   /* Opcional, para darle un poco más de espacio interno */
+  font-size: 1.2rem;    /* Opcional, para tamaño legible */
+  cursor: pointer;      /* Para que tenga cursor pointer */
+  border-radius: 10px;  /* Opcional, bordes redondeados */
+  border: none;         /* Opcional, sin borde */
+  background-color: blue;  /* Opcional, color de fondo */
+  color: rgb(255, 255, 255);              /* Opcional, color del texto */
+  transition: background-color 0.3s ease;
+}
+
+.quiz-card button.quiz-btn:hover {
+  background-color: #1d56db; /* Cambio de color al pasar el mouse */
+}
+
+.quiz-card p {
+  font-size: 2.0rem;
+  color: #000000; /* Texto oscuro para buena legibilidad */
+  text-align: center; /* Centrado del texto */
+  margin-bottom: 20px; /* Espacio entre párrafos */
+}
+.about-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 1.5px 6px rgba(0,0,0,0.15);
+  padding: 32px 40px;
+  max-width: 700px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-card:hover,
+.about-card:active {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.40), 0 3px 12px rgba(0,0,0,0.18);
+}
+
+.about-card h1,
+.about-card p {
+  color: #111;
+}
+.about-card p {
+  text-align: justify;
+}
+
+.about-card h1,
+.about-card h2,
+.about-card p {
+  color: #111;
+  text-shadow:
+    1px 1px 0 #bbb, /* Sombra muy suave y clara */
+    0 0 2px rgba(0,0,0,0.08); /* Sombra difusa casi imperceptible */
+  font-weight: 900;
+  letter-spacing: 2px;
+  transition: transform 0.3s cubic-bezier(.25,.8,.25,1), color 0.3s;
+}
+
+.about-card h1:hover,
+.about-card h2:hover,
+.about-card p:hover {
+  transform: perspective(400px) rotateX(8deg) scale(1.05);
+  color: #000000;
+}
+
+.about-card h1 {
+  font-size: 3.0rem;
+  margin-bottom: 16px;
+}
+
+.about-card p {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+    font-weight: normal;
+
+}
+
+.hero-text h1 {
+  text-shadow:
+    1px 1px 0 #000,
+    4px 4px 10px rgba(0,0,0,0.3),
+    0 0 25px rgba(0,0,255,0.2);
+  font-weight: 900;
+  letter-spacing: 2px;
+  transition: transform 0.3s cubic-bezier(.25,.8,.25,1), color 0.3s;
+  cursor: pointer;
+  color: #000000;
+}
+
+.hero-text h1:hover {
+  transform: perspective(400px) rotateX(8deg) scale(1.05);
+  color: #1d56db; /* Opcional: cambia el color al pasar el mouse */
+}
+
+.experience video {
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto;
+  max-width: 900px;   /* Igual que los cards */
+  width: 90vw;        /* Igual que los cards */
+  min-width: 500px;   /* Igual que los cards */
+  height: auto;
+  box-sizing: border-box;
+}
+.experience video:hover,
+.experience video:active {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 24px 64px rgba(0,0,0,0.40), 0 3px 12px rgba(0,0,0,0.18);
+}
+
+.about-card,
+.quiz-card,
+.cards-principal {
+  max-width: 900px;
+  width: 90vw;
+  min-width: 500px;
+  box-sizing: border-box;
+}
+
+.experience h2 {
+  color: #111;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-align: center;
+  text-shadow:
+    1px 1px 0 #bbb, /* Sombra muy suave */
+    0 0 2px rgba(0,0,0,0.08); /* Sombra difusa casi imperceptible */
+  transition: transform 0.3s cubic-bezier(.25,.8,.25,1), color 0.3s;
+  cursor: pointer;
+}
+
+.experience h2:hover {
+  transform: perspective(400px) rotateX(8deg) scale(1.05);
+  color: #1d56db;
+}
