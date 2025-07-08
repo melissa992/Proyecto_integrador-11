@@ -1,5 +1,5 @@
 import React from "react";
-import "./Inicio.css"; // Usa CSS externo para estilos.
+import "./Inicio.css";
 import "@google/model-viewer";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,6 @@ const Inicio = () => {
       <section className="hero">
         <div className="hero-text">
           <h1>
-            {" "}
             <strong>Corazón</strong>
           </h1>
         </div>
@@ -25,6 +24,23 @@ const Inicio = () => {
         ></model-viewer>
       </section>
 
+      {/* Inicio card (después del corazón, centrado) */}
+      <section className="inicio-header">
+        <h1>
+          Bienvenidos a la pagina web 3d de Proyecto Integrador 1 sobre el
+          Corazón y sus diferentes enfermedades
+        </h1>
+        <h2>Equipo de Trabajo</h2>
+        <ul className="equipo-lista">
+          <li>Juan Camilo Lopez Quintana</li>
+          <li>Angie Melissa Ocoro Hurtado</li>
+        </ul>
+        <p>
+          Somos el equipo de desarrollo CM y los invitamos a explorar el
+          fascinante mundo del corazón humano, aprende sobre su funcionamiento y
+          pon a prueba tus conocimientos con nuestro quiz interactivo.
+        </p>
+      </section>
       {/* El Corazon*/}
       <section className="about-card">
         <div className="about-text">
