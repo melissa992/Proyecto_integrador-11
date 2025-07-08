@@ -12,7 +12,6 @@ const Inicio = () => {
       <section className="hero">
         <div className="hero-text">
           <h1>
-            {" "}
             <strong>Corazón</strong>
           </h1>
         </div>
