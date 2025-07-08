@@ -1,12 +1,76 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Arritmia.css";
-import Exercise from "../../assets/arritmia/Exercise.glb"; // Ajusta la ruta según tu estructura
 import "@google/model-viewer";
+import Exercise from "../../assets/arritmia/Exercise.glb"; // Ajusta la ruta según tu estructura
 import Food from "../../assets/arritmia/HealthyFood.glb"; // Ajusta la ruta según tu estructura
 import Pain from "../../assets/arritmia/Pain.glb"; // Ajusta la ruta según tu estructura
 import Pacemaker from "../../assets/arritmia/Pacemaker.glb"; // Ajusta la ruta según tu estructura
 
 const Arritmia = () => {
+  // Manejar foco y hover
+  useEffect(() => {
+    const models = document.querySelectorAll("model-viewer");
+
+    models.forEach((model) => {
+      const handleMouseEnter = () => {
+        model.classList.add("active-model");
+      };
+
+      const handleMouseLeave = () => {
+        model.classList.remove("active-model");
+      };
+
+      model.addEventListener("mouseenter", handleMouseEnter);
+      model.addEventListener("mouseleave", handleMouseLeave);
+      model.addEventListener("focus", handleMouseEnter);
+      model.addEventListener("blur", handleMouseLeave);
+    });
+
+    return () => {
+      models.forEach((model) => {
+        model.removeEventListener("mouseenter", handleMouseEnter);
+        model.removeEventListener("mouseleave", handleMouseLeave);
+        model.removeEventListener("focus", handleMouseEnter);
+        model.removeEventListener("blur", handleMouseLeave);
+      });
+    };
+  }, []);
+
+  // Manejar teclas
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const activeModel = document.querySelector("model-viewer.active-model");
+      if (!activeModel) return;
+
+      const orbit = activeModel.getCameraOrbit();
+      const theta = parseFloat(orbit.theta);
+      const phi = parseFloat(orbit.phi);
+      const radius = parseFloat(orbit.radius);
+
+      switch (event.key) {
+        case "ArrowLeft":
+          activeModel.cameraOrbit = `${theta - 0.2}rad ${phi}rad ${radius}m`;
+          break;
+        case "ArrowRight":
+          activeModel.cameraOrbit = `${theta + 0.2}rad ${phi}rad ${radius}m`;
+          break;
+        case "ArrowUp":
+          activeModel.cameraOrbit = `${theta}rad ${phi - 0.2}rad ${radius}m`;
+          break;
+        case "ArrowDown":
+          activeModel.cameraOrbit = `${theta}rad ${phi + 0.2}rad ${radius}m`;
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
     <>
       <div className="arritmia-title">

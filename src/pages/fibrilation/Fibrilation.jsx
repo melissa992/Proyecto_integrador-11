@@ -1,12 +1,76 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Fibrilation.css";
 import "@google/model-viewer";
-import Desfibrilador from "../../assets/fibrilation/Defibillator.glb"; // Ajusta la ruta según tu estructura
-import Dolor from "../../assets/fibrilation/Pain.glb"; // Ajusta la ruta según tu estructura
-import Electro from "../../assets/fibrilation/Ekg.glb"; // Ajusta la ruta según tu estructura
-import Food from "../../assets/fibrilation/FOOD.glb"; // Ajusta la ruta según tu estructura
+import Desfibrilador from "../../assets/fibrilation/Defibillator.glb";
+import Dolor from "../../assets/fibrilation/Pain.glb";
+import Electro from "../../assets/fibrilation/Ekg.glb";
+import Food from "../../assets/fibrilation/FOOD.glb";
 
 const Fibrilation = () => {
+  // Manejar foco y hover
+  useEffect(() => {
+    const models = document.querySelectorAll("model-viewer");
+
+    models.forEach((model) => {
+      const handleMouseEnter = () => {
+        model.classList.add("active-model");
+      };
+
+      const handleMouseLeave = () => {
+        model.classList.remove("active-model");
+      };
+
+      model.addEventListener("mouseenter", handleMouseEnter);
+      model.addEventListener("mouseleave", handleMouseLeave);
+      model.addEventListener("focus", handleMouseEnter);
+      model.addEventListener("blur", handleMouseLeave);
+    });
+
+    return () => {
+      models.forEach((model) => {
+        model.removeEventListener("mouseenter", handleMouseEnter);
+        model.removeEventListener("mouseleave", handleMouseLeave);
+        model.removeEventListener("focus", handleMouseEnter);
+        model.removeEventListener("blur", handleMouseLeave);
+      });
+    };
+  }, []);
+
+  // Manejar teclas
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const activeModel = document.querySelector("model-viewer.active-model");
+      if (!activeModel) return;
+
+      const orbit = activeModel.getCameraOrbit();
+      const theta = parseFloat(orbit.theta);
+      const phi = parseFloat(orbit.phi);
+      const radius = parseFloat(orbit.radius);
+
+      switch (event.key) {
+        case "ArrowLeft":
+          activeModel.cameraOrbit = `${theta - 0.2}rad ${phi}rad ${radius}m`;
+          break;
+        case "ArrowRight":
+          activeModel.cameraOrbit = `${theta + 0.2}rad ${phi}rad ${radius}m`;
+          break;
+        case "ArrowUp":
+          activeModel.cameraOrbit = `${theta}rad ${phi - 0.2}rad ${radius}m`;
+          break;
+        case "ArrowDown":
+          activeModel.cameraOrbit = `${theta}rad ${phi + 0.2}rad ${radius}m`;
+          break;
+        default:
+          break;
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+  
   return (
     <>
       <div className="arritmia-title">
@@ -21,14 +85,14 @@ const Fibrilation = () => {
           alt="Dolor fibrilacion"
           auto-rotate
           camera-controls
-          camera-orbit="45deg 70deg 25m" // ← aquí controlas ángulo y distancia
+          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-          // environment-image="/hospital_room_1k.hdr"
+         // environment-image="/hospital_room_1k.hdr"
           skybox-image="/hospital_room_1k.hdr"
-          style={{ width: "100%", height: "300px" }}
+          style={{ width: '100%', height: '300px' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -49,14 +113,14 @@ const Fibrilation = () => {
           alt="Desfribliador 3D"
           auto-rotate
           camera-controls
-          camera-orbit="45deg 70deg 25m" // ← aquí controlas ángulo y distancia
+          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-          // environment-image="/hospital_room_1k.hdr"
+         // environment-image="/hospital_room_1k.hdr"
           skybox-image="/hospital_room_1k.hdr"
-          style={{ width: "100%", height: "300px" }}
+          style={{ width: '100%', height: '300px' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -76,14 +140,14 @@ const Fibrilation = () => {
           alt="Representación 3D electrocardiograma"
           auto-rotate
           camera-controls
-          camera-orbit="45deg 90deg 25m" // ← aquí controlas ángulo y distancia
+          camera-orbit="45deg 90deg 25m"   // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-          // environment-image="/hospital_room_1k.hdr"
+         // environment-image="/hospital_room_1k.hdr"
           skybox-image="/hospital_room_1k.hdr"
-          style={{ width: "100%", height: "300px" }}
+          style={{ width: '100%', height: '300px' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
@@ -103,14 +167,14 @@ const Fibrilation = () => {
           alt="Comida saludable"
           auto-rotate
           camera-controls
-          camera-orbit="45deg 70deg 25m" // ← aquí controlas ángulo y distancia
+          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-          // environment-image="/hospital_room_1k.hdr"
+         // environment-image="/hospital_room_1k.hdr"
           skybox-image="/hospital_room_1k.hdr"
-          style={{ width: "100%", height: "300px" }}
+          style={{ width: '100%', height: '300px' }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
         <div className="cards-text">
