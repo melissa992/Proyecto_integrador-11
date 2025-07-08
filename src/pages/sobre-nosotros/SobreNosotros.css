@@ -1,3 +1,23 @@
+  .cards-texto button {
+    font-size: 1.2rem;
+    padding: 0.7em 2em;
+    border-radius: 0.7em;
+    border: none;
+    background: #1d56db;
+    color: #fff;
+    margin: 1.5rem auto 0 auto;
+    display: block;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s;
+    will-change: transform;
+  }
+
+  .cards-texto button:hover {
+    transform: scale(1.12) translateY(-8px) skewX(-3deg);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    background: #1746b0;
+  }
 .cards-informacion {
     display: flex;
     align-items: center;
@@ -34,14 +54,22 @@
     text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0, 0, 0, 0.1);
     transform: perspective(600px) rotateX(4deg);
     font-weight: 800;
-    color: #ff0606;
+    color: #000000;
   }
   .cards-texto p {
     font-size: clamp(1rem, 2.5vw, 2rem);
     color: #000000;
     text-align: justify;
     margin: 0 1.25rem;
-    display: flex;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .cards-texto p:hover {
+    transform: scale(1.03) translateY(-4px) skewX(-2deg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    background: rgba(0,0,0,0.03);
   }
   
   .cards-informacion:hover {

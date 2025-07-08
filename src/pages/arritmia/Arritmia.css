@@ -100,6 +100,36 @@
 .cards-text p {
   font-size: 1.5rem;
   color: #000000;
+  text-align: justify;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.cards-text p:hover {
+  transform: scale(1.03) translateY(-4px) skewX(-2deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.03);
+}
+
+.arritmia-title h1 {
+  font-size: 4rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  text-shadow:
+    2px 2px 0 #000,
+    4px 4px 10px rgba(0, 0, 0, 0.5); /* Mejora el contraste */
+  transform: perspective(600px) rotateX(4deg);
+  font-weight: 800;
+  transition: transform 0.3s ease;
+}
+  
+.arritmia-title h1:hover {
+  transform: perspective(600px) rotateX(0deg) scale(1.05);
+  color: #ffffff; /* Cambio de color al pasar el mouse */
+  text-shadow:
+    2px 2px 0 #000,
+    4px 4px 10px rgba(0, 0, 0, 0.5); /* Mejora el contraste */
+
 }
 
 /* MODEL VIEWER */
@@ -116,20 +146,42 @@
     font-size: 1.5rem;
   }
 
+
   .cards {
     flex-direction: column;
+    gap: 4vw;
+    padding: 4vw 2vw;
   }
-
-  .cards-img {
-    width: 100%;
-    max-width: 300px;
+  .cards-img,
+  .model-viewer {
+    max-width: 90vw;
+    height: 50vw;
+    min-height: 180px;
+    max-height: 300px;
   }
-
+  .cards-text {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    min-width: 0;
+  }
   .cards-text h2 {
-    font-size: 2rem;
+    font-size: clamp(1.1rem, 5vw, 2rem);
   }
-
   .cards-text p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    text-align: justify;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+  .cards-text p:hover {
+    transform: scale(1.03) translateY(-4px) skewX(-2deg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    background: rgba(0,0,0,0.03);
+  }
+  .arritmia-title {
+    padding: 6vw 2vw;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+  .arritmia-title h1 {
+    font-size: clamp(1.2rem, 8vw, 2.5rem);
   }
 }
