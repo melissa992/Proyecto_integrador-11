@@ -72,7 +72,15 @@ body .arritmia-title {
 .cards-text p {
   font-size: 1.5rem;
   color: #000000;
-  
+  text-align: justify;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.cards-text p:hover {
+  transform: scale(1.03) translateY(-4px) skewX(-2deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.03);
 }
 
 .arritmia-title h1 {
@@ -101,26 +109,42 @@ body .arritmia-title {
   height: 400px;
 }
 
-@media (max-width: 768px) {
-  .arritmia-title {
-    padding: 40px 10px;
-    font-size: 1.5rem;
-  }
-
+@media (max-width: 900px) {
   .cards {
     flex-direction: column;
+    gap: 4vw;
+    padding: 4vw 2vw;
   }
-
-  .cards-img {
-    width: 100%;
-    max-width: 300px;
+  .cards-img,
+  .model-viewer {
+    max-width: 90vw;
+    height: 50vw;
+    min-height: 180px;
+    max-height: 300px;
   }
-
+  .cards-text {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    min-width: 0;
+  }
   .cards-text h2 {
-    font-size: 2rem;
+    font-size: clamp(1.1rem, 5vw, 2rem);
   }
-
   .cards-text p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    text-align: justify;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+  .cards-text p:hover {
+    transform: scale(1.03) translateY(-4px) skewX(-2deg);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    background: rgba(0,0,0,0.03);
+  }
+  .arritmia-title {
+    padding: 6vw 2vw;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+  .arritmia-title h1 {
+    font-size: clamp(1.2rem, 8vw, 2.5rem);
   }
 }
