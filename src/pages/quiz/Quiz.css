@@ -1,0 +1,47 @@
+.header-float, .sobre-header-float, .arritmia-header-float, .quiz-header-float {
+  position: relative;
+  animation: float-header 2.5s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  will-change: transform, text-shadow;
+  z-index: 2;
+}
+
+@keyframes float-header {
+  0% {
+    transform: perspective(600px) rotateX(4deg) translateY(0) scale(1);
+    text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  100% {
+    transform: perspective(600px) rotateX(4deg) translateY(-18px) scale(1.04);
+    text-shadow: 2px 8px 16px #000, 4px 12px 24px rgba(0,0,0,0.25);
+  }
+}
+/* Flotante para header principal del quiz */
+.quiz-header-float {
+  font-size: 2.5rem;
+  color: #1d56db;
+  text-align: center;
+  font-weight: 900;
+  text-shadow:
+    2px 2px 0 #bbb,
+    4px 4px 10px rgba(0,0,0,0.18),
+    0 8px 24px rgba(0,0,0,0.10);
+  position: relative;
+  animation: float-header 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes float-header {
+  0% {
+    transform: perspective(600px) rotateX(6deg) translateY(0);
+    text-shadow:
+      2px 2px 0 #bbb,
+      4px 4px 10px rgba(0,0,0,0.18),
+      0 8px 24px rgba(0,0,0,0.10);
+  }
+  100% {
+    transform: perspective(600px) rotateX(6deg) translateY(-18px) scale(1.04);
+    text-shadow:
+      2px 8px 16px #bbb,
+      4px 12px 24px rgba(0,0,0,0.22),
+      0 16px 48px rgba(0,0,0,0.15);
+  }
+}

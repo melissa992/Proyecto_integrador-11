@@ -1,3 +1,20 @@
+.header-float, .sobre-header-float, .arritmia-header-float, .quiz-header-float {
+  position: relative;
+  animation: float-header 2.5s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  will-change: transform;
+  z-index: 2;
+}
+
+@keyframes float-header {
+  0% {
+    transform: perspective(600px) rotateX(2deg) translateY(0) scale(1);
+    text-shadow: none;
+  }
+  100% {
+    transform: perspective(600px) rotateX(2deg) translateY(-10px) scale(1.03);
+    text-shadow: none;
+  }
+}
   .cards-texto button {
     font-size: 1.2rem;
     padding: 0.7em 2em;
