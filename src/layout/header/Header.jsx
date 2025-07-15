@@ -1,7 +1,7 @@
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "./Header.css";
-import logo from "/public/cm.png"; // Asegúrate de que la ruta sea correcta
+
 
 const Header = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -17,7 +17,7 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <img src={logo} alt="CM Software" className="logo" />
+        <img src="/cm.png" alt="CM Software" className="logo" />
         <NavLink to="/inicio" end className="navlink">
           Inicio
         </NavLink>

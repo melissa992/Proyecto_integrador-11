@@ -1,3 +1,31 @@
+.header-float, .sobre-header-float, .arritmia-header-float, .quiz-header-float {
+  position: relative;
+  animation: float-header 2.5s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  will-change: transform, text-shadow;
+  z-index: 2;
+}
+
+@keyframes float-header {
+  0% {
+    transform: perspective(600px) rotateX(4deg) translateY(0) scale(1);
+    text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  100% {
+    transform: perspective(600px) rotateX(4deg) translateY(-18px) scale(1.04);
+    text-shadow: 2px 8px 16px #000, 4px 12px 24px rgba(0,0,0,0.25);
+  }
+}
+/* Animación de aparición 3D al hacer scroll */
+.scroll-3d {
+  opacity: 0;
+  transform: translateY(60px) scale(0.98) perspective(600px) rotateX(10deg);
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1),
+    transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.show-3d {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) perspective(600px) rotateX(0deg) !important;
+}
 /* TÍTULO ARRITMIA */
 .arritmia-title {
   background-color: blue;
@@ -16,21 +44,48 @@
   text-align: center;
 }
 
-.arritmia-title h1 {
+
+.arritmia-title h1,
+.arritmia-header-float {
   font-size: 4rem;
   font-weight: 900;
   letter-spacing: 2px;
   cursor: pointer;
   color: #ffffff !important; /* ¡Esto fuerza el blanco! */
-  text-shadow: none; /* Elimina sombras grises */
-  transition: transform 0.3s ease, color 0.3s ease;
+  text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), color 0.3s, box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), text-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
   user-select: text;
+  position: relative;
+  animation: float-header 2.5s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  will-change: transform, text-shadow;
+  z-index: 2;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.15);
+}
+
+@keyframes float-header {
+  0% {
+    transform: perspective(600px) rotateX(4deg) translateY(0) scale(1);
+    text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  100% {
+    transform: perspective(600px) rotateX(4deg) translateY(-18px) scale(1.04);
+    text-shadow: 2px 8px 16px #000, 4px 12px 24px rgba(0,0,0,0.25);
+  }
 }
 
 
-.arritmia-title h1:hover {
-  transform: scale(1.05);
-  color: #ffffff;
+
+.arritmia-title h1:hover,
+.arritmia-header-float:hover {
+  transform: perspective(600px) rotateX(0deg) scale(1.08) skewX(-2deg) translateY(-8px);
+  color: #e0e0e0;
+  text-shadow:
+    2px 2px 0 #222,
+    4px 8px 24px #000,
+    0 12px 32px rgba(0,0,0,0.25),
+    0 0 32px #1d56db;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.40), 0 3px 12px rgba(0,0,0,0.18);
+  background: rgba(0,0,0,0.03);
 }
 
 /* SELECCIÓN DE TEXTO PERSONALIZADA */

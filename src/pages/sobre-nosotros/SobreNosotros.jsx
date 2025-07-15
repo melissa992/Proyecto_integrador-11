@@ -1,12 +1,13 @@
 import React from "react";
 import "./SobreNosotros.css"; // Ajusta la ruta según tu estructura
-import logo from "/public/cm.png"; // Ajusta la ruta según tu estructura
+
 
 const SobreNosotros = () => {
   return (
     <div className="cards-informacion">
       <div className="cards-texto">
-        <h2>Sobre Nosotros</h2>
+        <h2 className="sobre-header-float">Sobre Nosotros</h2>
+        <img src="/cm.png" alt="Logo" style={{maxWidth: '180px', margin: '0 auto 1.5rem auto', display: 'block'}} />
         <p>
           Somos un equipo comprometido con la educación y la innovación en
           salud. Nuestro objetivo es crear experiencias interactivas que

@@ -1,3 +1,157 @@
+/* Animación flotante para todos los títulos principales */
+
+/* Animación flotante SIN sombra para el header principal de inicio */
+
+/* Animación flotante con sombra muy sutil para el header principal de inicio */
+
+
+.header-float {
+  position: relative;
+  animation: float-header-sutil 2.5s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  will-change: transform, text-shadow;
+  z-index: 2;
+}
+
+@keyframes float-header-sutil {
+  0% {
+    transform: perspective(600px) rotateX(4deg) translateY(0) scale(1);
+    text-shadow: 1.5px 3px 8px rgba(0,0,0,0.14);
+  }
+  100% {
+    transform: perspective(600px) rotateX(4deg) translateY(-18px) scale(1.04);
+    text-shadow: 2.5px 7px 16px rgba(0,0,0,0.16);
+  }
+}
+
+.sobre-header-float, .arritmia-header-float, .quiz-header-float {
+  position: relative;
+  animation: float-header 2.5s cubic-bezier(0.4,0,0.2,1) infinite alternate;
+  will-change: transform, text-shadow;
+  z-index: 2;
+}
+
+@keyframes float-header {
+  0% {
+    transform: perspective(600px) rotateX(4deg) translateY(0) scale(1);
+    text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0,0,0,0.5);
+  }
+  100% {
+    transform: perspective(600px) rotateX(4deg) translateY(-18px) scale(1.04);
+    text-shadow: 2px 8px 16px #000, 4px 12px 24px rgba(0,0,0,0.25);
+  }
+}
+/* Animación de aparición 3D al hacer scroll */
+.scroll-3d {
+  opacity: 0;
+  transform: translateY(60px) scale(0.98) perspective(600px) rotateX(10deg);
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1),
+    transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.show-3d {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) perspective(600px) rotateX(0deg) !important;
+}
+/* --- 3D y movimiento para la lista de equipo --- */
+.inicio-header .equipo-lista {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem auto 1.5rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.inicio-header .equipo-lista li {
+  font-size: clamp(1.1rem, 2vw, 1.7rem);
+  color: #1d56db;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow:
+    1px 1px 0 #bbb,
+    2px 2px 8px rgba(0,0,0,0.10);
+  transform: perspective(400px) rotateX(5deg);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), color 0.3s;
+  will-change: transform;
+}
+
+.inicio-header .equipo-lista li:hover {
+  transform: perspective(400px) rotateX(0deg) scale(1.08) skewX(-2deg);
+  color: #1746b0;
+  text-shadow:
+    1px 1px 0 #888,
+    2px 2px 12px rgba(0,0,0,0.15);
+}
+/* --- 3D y movimiento para el header de inicio --- */
+/* --- 3D y movimiento para el header de inicio --- */
+.inicio-header h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #1d56db;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-weight: 900;
+  text-shadow:
+    2px 2px 0 #bbb,
+    4px 4px 10px rgba(0,0,0,0.18),
+    0 8px 24px rgba(0,0,0,0.10);
+  transform: perspective(600px) rotateX(6deg);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), color 0.3s;
+  will-change: transform;
+}
+
+
+.inicio-header h1:hover {
+  transform: perspective(600px) rotateX(0deg) scale(1.07);
+  color: #1746b0;
+  text-shadow:
+    2px 2px 0 #888,
+    4px 4px 16px rgba(0,0,0,0.22);
+}
+
+.inicio-header p {
+  font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+  color: #222;
+  text-align: justify;
+  margin: 1.2rem auto 0 auto;
+  max-width: 700px;
+  text-shadow:
+    1px 1px 0 #eee,
+    2px 2px 8px rgba(0,0,0,0.07);
+  transform: perspective(600px) rotateX(3deg);
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), box-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+
+.inicio-header p:hover {
+  transform: perspective(600px) rotateX(0deg) scale(1.03) skewX(-2deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.03);
+}
+/* --- 3D y movimiento para la lista de equipo --- */
+.equipo-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+.equipo-lista li {
+  font-weight: 600;
+  color: #000000;
+  font-size: 1.2rem;
+}
+/* --- 3D y movimiento para el header de inicio --- */
+.inicio-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+.inicio-header p {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color:black;
+  text-align: justify;
+}
 /* HERO SECTION */
 .hero {
   display: flex;

@@ -1,4 +1,24 @@
 import React, { useEffect } from "react";
+// Animación al hacer scroll para elementos 3D y texto
+const useScroll3DAnimation = () => {
+  useEffect(() => {
+    const revealElements = document.querySelectorAll(".scroll-3d");
+    const handleScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      revealElements.forEach((el) => {
+        const boxTop = el.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          el.classList.add("show-3d");
+        } else {
+          el.classList.remove("show-3d");
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+};
 import "./Arritmia.css";
 import "@google/model-viewer";
 import Exercise from "../../assets/arritmia/Exercise.glb"; // Ajusta la ruta según tu estructura
@@ -7,34 +27,36 @@ import Pain from "../../assets/arritmia/Pain.glb"; // Ajusta la ruta según tu e
 import Pacemaker from "../../assets/arritmia/Pacemaker.glb"; // Ajusta la ruta según tu estructura
 
 const Arritmia = () => {
+  useScroll3DAnimation();
   // Manejar foco y hover
-  useEffect(() => {
-    const models = document.querySelectorAll("model-viewer");
+useEffect(() => {
+  const models = document.querySelectorAll("model-viewer");
 
+  const handleMouseEnter = (e) => {
+    e.currentTarget.classList.add("active-model");
+  };
+
+  const handleMouseLeave = (e) => {
+    e.currentTarget.classList.remove("active-model");
+  };
+
+  models.forEach((model) => {
+    model.addEventListener("mouseenter", handleMouseEnter);
+    model.addEventListener("mouseleave", handleMouseLeave);
+    model.addEventListener("focus", handleMouseEnter);
+    model.addEventListener("blur", handleMouseLeave);
+  });
+
+  return () => {
     models.forEach((model) => {
-      const handleMouseEnter = () => {
-        model.classList.add("active-model");
-      };
-
-      const handleMouseLeave = () => {
-        model.classList.remove("active-model");
-      };
-
-      model.addEventListener("mouseenter", handleMouseEnter);
-      model.addEventListener("mouseleave", handleMouseLeave);
-      model.addEventListener("focus", handleMouseEnter);
-      model.addEventListener("blur", handleMouseLeave);
+      model.removeEventListener("mouseenter", handleMouseEnter);
+      model.removeEventListener("mouseleave", handleMouseLeave);
+      model.removeEventListener("focus", handleMouseEnter);
+      model.removeEventListener("blur", handleMouseLeave);
     });
+  };
+}, []);
 
-    return () => {
-      models.forEach((model) => {
-        model.removeEventListener("mouseenter", handleMouseEnter);
-        model.removeEventListener("mouseleave", handleMouseLeave);
-        model.removeEventListener("focus", handleMouseEnter);
-        model.removeEventListener("blur", handleMouseLeave);
-      });
-    };
-  }, []);
 
   // Manejar teclas
   useEffect(() => {
@@ -73,15 +95,16 @@ const Arritmia = () => {
 
   return (
     <>
-      <div className="arritmia-title">
-        <h1 style={{ color: "white" }}>
+
+      <div className="arritmia-title scroll-3d">
+        <h1 className="scroll-3d arritmia-header-float" style={{ color: "white" }}>
           Enfermedad <br /> Arritmia Cardíaca
         </h1>
       </div>
 
-      <div className="cards">
+      <div className="cards scroll-3d">
         <model-viewer
-          className="model-viewer"
+          className="model-viewer scroll-3d"
           src={Exercise}
           alt="Ejercicio 3D"
           auto-rotate
@@ -96,9 +119,9 @@ const Arritmia = () => {
           style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
-        <div className="cards-text">
-          <h2>¿Qué es la Arritmia?</h2>
-          <p>
+        <div className="cards-text scroll-3d">
+          <h2 className="scroll-3d">¿Qué es la Arritmia?</h2>
+          <p className="scroll-3d">
             Una arritmia cardíaca es un latido irregular del corazón. Esto
             ocurre cuando no funcionan adecuadamente los impulsos eléctricos que
             le ordenan al corazón latir. Puede que el corazón lata demasiado
