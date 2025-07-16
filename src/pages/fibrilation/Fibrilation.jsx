@@ -29,33 +29,33 @@ import Food from "../../assets/fibrilation/FOOD.glb";
 const Fibrilation = () => {
   useScroll3DAnimation();
   // Manejar foco y hover
-useEffect(() => {
-  const models = document.querySelectorAll("model-viewer");
+  useEffect(() => {
+    const models = document.querySelectorAll("model-viewer");
 
-  const handleMouseEnter = (e) => {
-    e.currentTarget.classList.add("active-model");
-  };
+    const handleMouseEnter = (e) => {
+      e.currentTarget.classList.add("active-model");
+    };
 
-  const handleMouseLeave = (e) => {
-    e.currentTarget.classList.remove("active-model");
-  };
+    const handleMouseLeave = (e) => {
+      e.currentTarget.classList.remove("active-model");
+    };
 
-  models.forEach((model) => {
-    model.addEventListener("mouseenter", handleMouseEnter);
-    model.addEventListener("mouseleave", handleMouseLeave);
-    model.addEventListener("focus", handleMouseEnter);
-    model.addEventListener("blur", handleMouseLeave);
-  });
-
-  return () => {
     models.forEach((model) => {
-      model.removeEventListener("mouseenter", handleMouseEnter);
-      model.removeEventListener("mouseleave", handleMouseLeave);
-      model.removeEventListener("focus", handleMouseEnter);
-      model.removeEventListener("blur", handleMouseLeave);
+      model.addEventListener("mouseenter", handleMouseEnter);
+      model.addEventListener("mouseleave", handleMouseLeave);
+      model.addEventListener("focus", handleMouseEnter);
+      model.addEventListener("blur", handleMouseLeave);
     });
-  };
-}, []);
+
+    return () => {
+      models.forEach((model) => {
+        model.removeEventListener("mouseenter", handleMouseEnter);
+        model.removeEventListener("mouseleave", handleMouseLeave);
+        model.removeEventListener("focus", handleMouseEnter);
+        model.removeEventListener("blur", handleMouseLeave);
+      });
+    };
+  }, []);
 
   // Manejar teclas
   useEffect(() => {
@@ -91,7 +91,7 @@ useEffect(() => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-  
+
   return (
     <>
       <div className="arritmia-title scroll-3d">
@@ -106,16 +106,34 @@ useEffect(() => {
           alt="Dolor fibrilacion"
           auto-rotate
           camera-controls
-          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-orbit="45deg 70deg 25m" // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-         // environment-image="/hospital_room_1k.hdr"
+          // environment-image="/hospital_room_1k.hdr"
           skybox-image="/hospital_room_1k.hdr"
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
+        {/* TEXTO 2D superpuesto */}
+        <div
+          className="scroll-text-3d"
+          style={{
+            position: "absolute",
+            top: "20px", // Coloca el div a 20px del borde inferior del padre.
+            left: "18%", // Mueve el borde izquierdo del div al 50% del ancho del padre.
+            transform: "translateX(-50%)", // Centra el div horizontalmente, corrigiendo el "left: 50%".
+            color: "white",
+            background: "rgba(0,0,0,0.5)",
+            padding: "20px 10px",
+            borderRadius: "5px",
+            zIndex: 10, // Opcional, para asegurar que esté por encima de otros elementos.
+            whiteSpace: "nowrap", // Opcional, para evitar que el texto se divida en varias líneas.
+          }}
+        >
+          navegación por teclado ↑ ← ↓ →
+        </div>
         <div className="cards-text scroll-3d">
           <h2 className="scroll-3d">¿Qué es la Fibrilacion?</h2>
           <p className="scroll-3d">
@@ -134,16 +152,34 @@ useEffect(() => {
           alt="Desfribliador 3D"
           auto-rotate
           camera-controls
-          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-orbit="45deg 70deg 25m" // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-         // environment-image="/hospital_room_1k.hdr"
+          // environment-image="/hospital_room_1k.hdr"
           skybox-image="/hospital_room_1k.hdr"
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
+        {/* TEXTO 2D superpuesto */}
+        <div
+          className="scroll-text-3d"
+          style={{
+            position: "absolute",
+            top: "20px", // Coloca el div a 20px del borde inferior del padre.
+            left: "18%", // Mueve el borde izquierdo del div al 50% del ancho del padre.
+            transform: "translateX(-50%)", // Centra el div horizontalmente, corrigiendo el "left: 50%".
+            color: "white",
+            background: "rgba(0,0,0,0.5)",
+            padding: "20px 10px",
+            borderRadius: "5px",
+            zIndex: 10, // Opcional, para asegurar que esté por encima de otros elementos.
+            whiteSpace: "nowrap", // Opcional, para evitar que el texto se divida en varias líneas.
+          }}
+        >
+          navegación por teclado ↑ ← ↓ →
+        </div>
         <div className="cards-text">
           <h2>Síntomas</h2>
           <p>
@@ -161,16 +197,34 @@ useEffect(() => {
           alt="Representación 3D electrocardiograma"
           auto-rotate
           camera-controls
-          camera-orbit="45deg 90deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-orbit="45deg 90deg 25m" // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-         // environment-image="/hospital_room_1k.hdr"
+          // environment-image="/hospital_room_1k.hdr"
           skybox-image="/hospital_room_1k.hdr"
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
+        {/* TEXTO 2D superpuesto */}
+        <div
+          className="scroll-text-3d"
+          style={{
+            position: "absolute",
+            top: "20px", // Coloca el div a 20px del borde inferior del padre.
+            left: "18%", // Mueve el borde izquierdo del div al 50% del ancho del padre.
+            transform: "translateX(-50%)", // Centra el div horizontalmente, corrigiendo el "left: 50%".
+            color: "white",
+            background: "rgba(0,0,0,0.5)",
+            padding: "20px 10px",
+            borderRadius: "5px",
+            zIndex: 10, // Opcional, para asegurar que esté por encima de otros elementos.
+            whiteSpace: "nowrap", // Opcional, para evitar que el texto se divida en varias líneas.
+          }}
+        >
+          navegación por teclado ↑ ← ↓ →
+        </div>
         <div className="cards-text">
           <h2>Tratamiento</h2>
           <p>
@@ -188,16 +242,34 @@ useEffect(() => {
           alt="Comida saludable"
           auto-rotate
           camera-controls
-          camera-orbit="45deg 70deg 25m"   // ← aquí controlas ángulo y distancia
+          camera-orbit="45deg 70deg 25m" // ← aquí controlas ángulo y distancia
           camera-target="0m 0m 0m"
           exposure="1.2"
           shadow-intensity="1"
           shadow-softness="0.9"
-         // environment-image="/hospital_room_1k.hdr"
+          // environment-image="/hospital_room_1k.hdr"
           skybox-image="/hospital_room_1k.hdr"
-          style={{ width: '100%', height: '300px' }}
+          style={{ width: "100%", height: "300px" }}
           environment-image="https://modelviewer.dev/shared-assets/environments/spruit_sunrise_1k_HDR.jpg"
         ></model-viewer>
+        {/* TEXTO 2D superpuesto */}
+        <div
+          className="scroll-text-3d"
+          style={{
+            position: "absolute",
+            top: "20px", // Coloca el div a 20px del borde inferior del padre.
+            left: "18%", // Mueve el borde izquierdo del div al 50% del ancho del padre.
+            transform: "translateX(-50%)", // Centra el div horizontalmente, corrigiendo el "left: 50%".
+            color: "white",
+            background: "rgba(0,0,0,0.5)",
+            padding: "20px 10px",
+            borderRadius: "5px",
+            zIndex: 10, // Opcional, para asegurar que esté por encima de otros elementos.
+            whiteSpace: "nowrap", // Opcional, para evitar que el texto se divida en varias líneas.
+          }}
+        >
+          navegación por teclado ↑ ← ↓ →
+        </div>
         <div className="cards-text">
           <h2>Prevención y autocuidado</h2>
           <p>

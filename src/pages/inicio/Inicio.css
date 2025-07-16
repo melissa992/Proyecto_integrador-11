@@ -500,3 +500,203 @@ model-viewer {
   color: #000000;
   font-size: 1.2rem;
 }
+
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sidebar-info {
+  background-color: #618fc4;
+  color: #ffffff;
+  padding: 20px 40px;
+  margin: 30px auto;
+  max-width: 600px;
+  border-left: 8px solid #5f97ebaf;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease forwards, pulseBackground 4s infinite;
+  position: relative;
+}
+
+.sidebar-text {
+  font-size: 1.2rem;
+  font-weight: bold;
+  transform: perspective(500px) rotateX(8deg);
+  text-shadow: 2px 2px 0 #0d48a1, 4px 4px 0 rgba(0, 0, 0, 0.4);
+}
+
+.arrow-bounce {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 15px;
+  animation: bounceArrow 1.8s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes pulseBackground {
+  0% { background-color: #1565c0; }
+  50% { background-color: #1e88e5; }
+  100% { background-color: #1565c0; }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedor de todas las tarjetas */
+.heart-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+/* Estilo de cada tarjeta cuadrada */
+.heart-card {
+  width: 300px;
+  height: 300px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+  animation: fadeIn 1s ease-in-out forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Animación al pasar el mouse */
+.heart-card:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen en la parte superior de la tarjeta */
+.heart-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Contenedor del texto y botón */
+.heart-card-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Texto dentro de la tarjeta */
+.heart-card-content p {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 5px 0 10px;
+  font-weight: bold;
+}
+
+/* Botón dentro de la tarjeta */
+.quiz-btn {
+  background-color: #287fc6;
+  color: white;
+  border: none;
+  padding: 1px 1px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  margin: 0 auto;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover del botón */
+.quiz-btn:hover {
+  background-color: #5a9de0;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fibrilacion-text {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #1d56db;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow:
+    1px 1px 0 #000,
+    3px 3px 10px rgba(0, 0, 0, 0.4);
+  transform-style: preserve-3d;
+  animation: float3DMove 3s ease-in-out infinite alternate;
+  will-change: transform, text-shadow;
+}
+
+@keyframes float3DMove {
+  0% {
+    transform: perspective(800px) rotateX(10deg) translateY(0) scale(1);
+    text-shadow: 1px 1px 0 #000, 3px 3px 10px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    transform: perspective(800px) rotateX(4deg) translateY(-10px) scale(1.05);
+    text-shadow: 2px 6px 12px rgba(0, 0, 0, 0.35);
+  }
+  100% {
+    transform: perspective(800px) rotateX(0deg) translateY(-20px) scale(1.08);
+    text-shadow: 3px 9px 18px rgba(0, 0, 0, 0.5);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

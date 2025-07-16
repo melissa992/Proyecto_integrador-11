@@ -23,7 +23,6 @@ import "./Inicio.css";
 import "@google/model-viewer";
 import { useNavigate } from "react-router-dom";
 
-
 const Inicio = () => {
   const navigate = useNavigate();
   useScroll3DAnimation();
@@ -77,10 +76,58 @@ const Inicio = () => {
           a las células y retirar los productos de desecho. Está dividido en
           cuatro cavidades: dos aurículas <strong>(superior)</strong> y dos
           ventrículos
-          <strong> (inferior) </strong>. El corazón está compuesto por tres
-          capas de tejido y cuenta con válvulas que regulan el flujo sanguíneo.
         </p>
       </section>
+
+      <div className="sidebar-info scroll-3d">
+        <p className="sidebar-text">
+          <strong>
+            A continuación, exploraremos algunas de las enfermedades más comunes
+            que afectan al corazón
+          </strong>
+          , como la <strong>arritmia</strong> y la <strong>fibrilación</strong>.
+        </p>
+        <div className="arrow-bounce">⬇️</div>
+      </div>
+      {/* Imagen tipo tarjeta informativa relacionada al corazón */}
+      <div className="heart-card-container scroll-3d">
+        <div className="heart-card scroll-3d">
+          <text className="scroll-3d">
+            <h2 className="scroll-3d fibrilacion-text">Arritmia</h2>
+          </text>
+          <model-viewer
+            src="/models-3d/Pacemaker.glb"
+            alt="Corazón 3D"
+            auto-rotate
+            camera-controls
+            className="hero-model scroll-3d"
+          ></model-viewer>
+          <button
+            className="quiz-btn scroll-3d"
+            onClick={() => navigate("/arritmia")}
+          >
+            Mas sobre la Arritmia
+          </button>
+        </div>
+        <div className="heart-card scroll-3d">
+          <text className="scroll-3d">
+            <h2 className="scroll-3d fibrilacion-text">Fibrilación</h2>
+          </text>
+          <model-viewer
+            src="/models-3d/Ekg.glb"
+            alt="Corazón 3D"
+            auto-rotate
+            camera-controls
+            className="hero-model scroll-3d"
+          ></model-viewer>
+          <button
+            className="quiz-btn scroll-3d"
+            onClick={() => navigate("/fibrilacion")}
+          >
+            Mas sobre la Fibrilación
+          </button>
+        </div>
+      </div>
 
       {/* Experiencia 3D */}
       <section className="experience scroll-3d">
@@ -104,7 +151,10 @@ const Inicio = () => {
           🎉 ¡Acepta el desafio! Es hora de un quiz. Prepárate para una
           competencia llena de preguntas y diversión.
         </p>
-        <button className="quiz-btn scroll-3d" onClick={() => navigate("/quiz")}> 
+        <button
+          className="quiz-btn scroll-3d"
+          onClick={() => navigate("/quiz")}
+        >
           <strong>Iniciar el Quiz</strong>
         </button>
       </footer>
