@@ -1,5 +1,10 @@
-import React, { useEffect } from "react";
-// Animación al hacer scroll para elementos 3D y texto
+import React, { useEffect, Suspense } from "react";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, useGLTF } from "@react-three/drei";
+import { useNavigate } from "react-router-dom";
+import "./Inicio.css";
+
+// Hook para scroll animado
 const useScroll3DAnimation = () => {
   useEffect(() => {
     const revealElements = document.querySelectorAll(".scroll-3d");
@@ -19,9 +24,24 @@ const useScroll3DAnimation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 };
-import "./Inicio.css";
-import "@google/model-viewer";
-import { useNavigate } from "react-router-dom";
+
+const Model = ({ path }) => {
+  const { scene } = useGLTF(path);
+  return <primitive object={scene} />;
+};
+
+const ModelViewer = ({ src }) => (
+  <div className="hero-model scroll-3d">
+    <Canvas camera={{ position: [0, 0, 4] }}>
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <Suspense fallback={null}>
+        <Model path={src} />
+      </Suspense>
+      <OrbitControls autoRotate enableZoom enablePan />
+    </Canvas>
+  </div>
+);
 
 const Inicio = () => {
   const navigate = useNavigate();
@@ -36,16 +56,9 @@ const Inicio = () => {
             <strong>Corazón</strong>
           </h1>
         </div>
-        <model-viewer
-          src="/models-3d/heart.glb"
-          alt="Corazón 3D"
-          auto-rotate
-          camera-controls
-          className="hero-model scroll-3d"
-        ></model-viewer>
+        <ModelViewer src="/models-3d/heart.glb" />
       </section>
 
-      {/* Inicio card (después del corazón, centrado) */}
       <section className="inicio-header scroll-3d">
         <h1 className="scroll-3d header-float">
           Bienvenidos a la pagina web 3d de Proyecto Integrador 1 sobre el
@@ -62,7 +75,7 @@ const Inicio = () => {
           pon a prueba tus conocimientos con nuestro quiz interactivo.
         </p>
       </section>
-      {/* El Corazon*/}
+
       <section className="about-card scroll-3d">
         <div className="about-text scroll-3d">
           <h1 className="scroll-3d">
@@ -89,19 +102,11 @@ const Inicio = () => {
         </p>
         <div className="arrow-bounce">⬇️</div>
       </div>
-      {/* Imagen tipo tarjeta informativa relacionada al corazón */}
+
       <div className="heart-card-container scroll-3d">
         <div className="heart-card scroll-3d">
-          <text className="scroll-3d">
-            <h2 className="scroll-3d fibrilacion-text">Arritmia</h2>
-          </text>
-          <model-viewer
-            src="/models-3d/Pacemaker.glb"
-            alt="Corazón 3D"
-            auto-rotate
-            camera-controls
-            className="hero-model scroll-3d"
-          ></model-viewer>
+          <h2 className="scroll-3d fibrilacion-text">Arritmia</h2>
+          <ModelViewer src="/models-3d/Pacemaker.glb" />
           <button
             className="quiz-btn scroll-3d"
             onClick={() => navigate("/arritmia")}
@@ -110,16 +115,8 @@ const Inicio = () => {
           </button>
         </div>
         <div className="heart-card scroll-3d">
-          <text className="scroll-3d">
-            <h2 className="scroll-3d fibrilacion-text">Fibrilación</h2>
-          </text>
-          <model-viewer
-            src="/models-3d/Ekg.glb"
-            alt="Corazón 3D"
-            auto-rotate
-            camera-controls
-            className="hero-model scroll-3d"
-          ></model-viewer>
+          <h2 className="scroll-3d fibrilacion-text">Fibrilación</h2>
+          <ModelViewer src="/models-3d/Ekg.glb" />
           <button
             className="quiz-btn scroll-3d"
             onClick={() => navigate("/fibrilacion")}
@@ -129,7 +126,6 @@ const Inicio = () => {
         </div>
       </div>
 
-      {/* Experiencia 3D */}
       <section className="experience scroll-3d">
         <h2 className="scroll-3d">Vive una experiencia 3D del Corazón</h2>
         <video
@@ -146,6 +142,7 @@ const Inicio = () => {
           Tu navegador no soporta el video.
         </video>
       </section>
+
       <footer className="quiz-card scroll-3d">
         <p className="scroll-3d">
           🎉 ¡Acepta el desafio! Es hora de un quiz. Prepárate para una
