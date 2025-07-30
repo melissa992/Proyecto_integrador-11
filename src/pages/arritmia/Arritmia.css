@@ -15,6 +15,7 @@
     text-shadow: 2px 8px 16px #000, 4px 12px 24px rgba(0,0,0,0.25);
   }
 }
+
 /* Animación de aparición 3D al hacer scroll */
 .scroll-3d {
   opacity: 0;
@@ -26,6 +27,7 @@
   opacity: 1 !important;
   transform: translateY(0) scale(1) perspective(600px) rotateX(0deg) !important;
 }
+
 /* TÍTULO ARRITMIA */
 .arritmia-title {
   background-color: blue;
@@ -44,14 +46,13 @@
   text-align: center;
 }
 
-
 .arritmia-title h1,
 .arritmia-header-float {
   font-size: 4rem;
   font-weight: 900;
   letter-spacing: 2px;
   cursor: pointer;
-  color: #ffffff !important; /* ¡Esto fuerza el blanco! */
+  color: #ffffff !important;
   text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0,0,0,0.5);
   transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), color 0.3s, box-shadow 0.4s cubic-bezier(0.4,0,0.2,1), text-shadow 0.4s cubic-bezier(0.4,0,0.2,1);
   user-select: text;
@@ -61,19 +62,6 @@
   z-index: 2;
   box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.15);
 }
-
-@keyframes float-header {
-  0% {
-    transform: perspective(600px) rotateX(4deg) translateY(0) scale(1);
-    text-shadow: 2px 2px 0 #000, 4px 4px 10px rgba(0,0,0,0.5);
-  }
-  100% {
-    transform: perspective(600px) rotateX(4deg) translateY(-18px) scale(1.04);
-    text-shadow: 2px 8px 16px #000, 4px 12px 24px rgba(0,0,0,0.25);
-  }
-}
-
-
 
 .arritmia-title h1:hover,
 .arritmia-header-float:hover {
@@ -104,7 +92,7 @@
 /* TARJETAS */
 .cards {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 20px;
   margin: 20px auto;
@@ -113,9 +101,29 @@
   border: 1px solid #ccc;
   border-radius: 20px;
   background-color: transparent;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cards-left,
+.cards-right {
+  flex: 1;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.cards-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cards-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
 }
 
 .cards:hover {
@@ -123,14 +131,11 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.cards-img {
+.canvas-wrapper {
   width: 100%;
-  max-width: 400px;
-  height: auto;
 }
 
 .cards-text {
-  flex: 1;
   text-align: center;
   font-size: 1.2rem;
   color: #000000;
@@ -166,27 +171,6 @@
   background: rgba(0,0,0,0.03);
 }
 
-.arritmia-title h1 {
-  font-size: 4rem;
-  color: #ffffff;
-  margin-bottom: 10px;
-  text-shadow:
-    2px 2px 0 #000,
-    4px 4px 10px rgba(0, 0, 0, 0.5); /* Mejora el contraste */
-  transform: perspective(600px) rotateX(4deg);
-  font-weight: 800;
-  transition: transform 0.3s ease;
-}
-  
-.arritmia-title h1:hover {
-  transform: perspective(600px) rotateX(0deg) scale(1.05);
-  color: #ffffff; /* Cambio de color al pasar el mouse */
-  text-shadow:
-    2px 2px 0 #000,
-    4px 4px 10px rgba(0, 0, 0, 0.5); /* Mejora el contraste */
-
-}
-
 /* MODEL VIEWER */
 .model-viewer {
   width: 100%;
@@ -201,12 +185,17 @@
     font-size: 1.5rem;
   }
 
-
   .cards {
     flex-direction: column;
     gap: 4vw;
     padding: 4vw 2vw;
   }
+
+  .cards-left,
+  .cards-right {
+    width: 100%;
+  }
+
   .cards-img,
   .model-viewer {
     max-width: 90vw;
@@ -214,30 +203,26 @@
     min-height: 180px;
     max-height: 300px;
   }
+
   .cards-text {
     font-size: clamp(1rem, 3vw, 1.2rem);
     min-width: 0;
   }
+
   .cards-text h2 {
     font-size: clamp(1.1rem, 5vw, 2rem);
   }
+
   .cards-text p {
     font-size: clamp(1rem, 3vw, 1.2rem);
-    text-align: justify;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
   }
-  .cards-text p:hover {
-    transform: scale(1.03) translateY(-4px) skewX(-2deg);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
-    background: rgba(0,0,0,0.03);
-  }
+
   .arritmia-title {
     padding: 6vw 2vw;
     font-size: clamp(1rem, 5vw, 1.5rem);
   }
+
   .arritmia-title h1 {
     font-size: clamp(1.2rem, 8vw, 2.5rem);
   }
 }
-
