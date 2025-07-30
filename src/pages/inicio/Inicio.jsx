@@ -50,14 +50,18 @@ const Inicio = () => {
   return (
     <div>
       {/* Imagen principal */}
-      <section className="hero scroll-3d">
-        <div className="hero-text scroll-3d">
-          <h1 className="header-float">
-            <strong>Corazón</strong>
-          </h1>
-        </div>
+    <section className="hero-section scroll-3d">
+      {/* IZQUIERDA: Texto */}
+      <div className="hero-text scroll-3d">
+        <h1 className="header-float">
+          <strong>Corazón</strong>
+        </h1>
+      </div>
+      {/* DERECHA: Modelo */}
+      <div className="hero-model scroll-3d">
         <ModelViewer src="/models-3d/heart.glb" />
-      </section>
+      </div>
+    </section>
 
       <section className="inicio-header scroll-3d">
         <h1 className="scroll-3d header-float">

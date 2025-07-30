@@ -1,8 +1,10 @@
 // Arritmia.jsx (versión ajustada)
 import React, { useEffect, useRef, Suspense, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Environment, useGLTF, useAnimations, KeyboardControls, useKeyboardControls } from "@react-three/drei";
+import { OrbitControls, Environment, useGLTF, useAnimations, KeyboardControls, useKeyboardControls, Text } from "@react-three/drei";
 import { useSpring, a } from '@react-spring/three'; // animación
+import { Text3D } from "@react-three/drei";
+import robotoFont from "../../assets/fonts/Roboto_Italic.json";
 import * as THREE from "three";
 import "./Arritmia.css";
 
@@ -36,7 +38,7 @@ const ScrollReveal = ({ children, className }) => {
   );
 };
 
-const Model = ({ path, animate = false }) => {
+const Model = ({ path, animate = false, label = "Modelo 3D" }) => {
   const group = useRef();
   const { scene, animations } = useGLTF(path);
   const { actions } = useAnimations(animations, group);
@@ -62,6 +64,12 @@ const Model = ({ path, animate = false }) => {
     const targetSize = 3;
     const factor = targetSize / maxDimension;
     setScaleFactor(factor);
+    scene.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
   }, [scene]);
 
   useEffect(() => {
@@ -93,13 +101,43 @@ const Model = ({ path, animate = false }) => {
   };
 
   return (
-    <a.primitive
+    <a.group
       ref={group}
-      object={scene}
       scale={scale}
       position={[0, -1, 0]}
       onClick={handleClick}
-    />
+    >
+      <primitive object={scene} />
+
+      {/* Texto 3D */}
+        <Text3D
+          font={robotoFont}
+          size={0.13}                // Un poco más pequeño
+          height={0.05}
+          curveSegments={12}
+          bevelEnabled
+          bevelThickness={0.01}
+          bevelSize={0.005}
+          bevelSegments={4}
+          position={[-0.7, 0.6, -0.2]}    // Ligeramente al frente
+        >
+          {label}
+          <meshStandardMaterial color="white"  metalness={1} roughness={1}/>
+        </Text3D>
+
+        {/* Texto plano sobrepuesto, siempre legible */}
+        <Text
+          fontSize={0.12}
+          color="white"
+          outlineColor="black"
+          outlineWidth={0.02}
+          anchorX="center"
+          anchorY="top"
+          position={[0, -0.1, 0.4]} // ligeramente al frente
+        >
+          Mover modelo con W A S D
+        </Text>
+    </a.group>
   );
 };
 
@@ -121,11 +159,28 @@ const ModelCard = ({ title, text, model }) => (
             style={{ width: "100%", height: "300px" }}
             camera={{ position: [0, 2, 5], fov: 50 }}
           >
-            <ambientLight intensity={1.2} />
-            <directionalLight position={[5, 10, 5]} intensity={1.5} castShadow />
+          <ambientLight intensity={1.2} />
+            <directionalLight
+              castShadow
+              position={[5, 10, 5]}
+              intensity={1.2}
+              shadow-mapSize-width={2048}
+              shadow-mapSize-height={2048}
+              shadow-camera-far={50}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
+            />
+            <ambientLight intensity={0.8} />
+            <pointLight position={[10, 10, 10]} intensity={0.5} />
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -3.0, 0]} receiveShadow>
+            <planeGeometry args={[100, 100]} />
+            <shadowMaterial transparent opacity={0.3} />
+            </mesh>
             <Suspense fallback={null}>
               <Environment preset="park" background />
-              <Model path={model} />
+              <Model path={model} label="Click para detener"/>
               <OrbitControls
                 target={[0, 0, 0]}
                 enablePan={false}
@@ -136,7 +191,6 @@ const ModelCard = ({ title, text, model }) => (
             </Suspense>
           </Canvas>
         </KeyboardControls>
-        <div className="scroll-text-3d">Navegación: W A S D / ↑ ↓ ← → / Espacio (pausar)</div>
       </ScrollReveal>
     </div>
 
