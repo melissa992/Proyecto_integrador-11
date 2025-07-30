@@ -4,6 +4,19 @@
   "version": "0.1.0",
   "main": "src/api/index.js",
   "scripts": {
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "node --watch src/api/index.js",
+    "dev:frontend": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "node src/api/index.js"
+  },
+=======
+=======
+>>>>>>> Stashed changes
   "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
   "dev:backend": "node --watch src/api/index.js",
   "dev:frontend": "vite",
@@ -13,6 +26,10 @@
   "start": "node src/api/index.js"
 }
 ,
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
   "dependencies": {
     "@react-spring/three": "^10.0.1",
     "@react-three/drei": "^10.5.2",

@@ -32,7 +32,7 @@ const Header = ({ user }) => {
           </div>
         </div>
         <NavLink to="quiz" end className="navlink">
-          Quiz Interactivo
+          Quiz
         </NavLink>
         <NavLink to="sobre-nosotros" end className="navlink">
           Sobre nosotros
