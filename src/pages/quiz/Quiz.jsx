@@ -7,19 +7,19 @@ import * as THREE from "three";
 // Preguntas
 const preguntas = [
   {
-    pregunta: "¿Cuál es la capital de Francia?",
-    opciones: ["París", "Londres", "Roma"],
-    respuestaCorrecta: "París",
+    pregunta: "¿Cuál de las siguientes afirmaciones describe mejor la fibrilacion?",
+    opciones: ["Latidos desordenados", "Corazón agrandado", "Arteria bloqueada"],
+    respuestaCorrecta: "Latidos desordenados",
   },
   {
-    pregunta: "¿Cuál es el planeta más grande?",
-    opciones: ["Marte", "Júpiter", "Venus"],
-    respuestaCorrecta: "Júpiter",
+    pregunta: " ¿Cuál es uno de sus síntomas comunes de la arritmia?",
+    opciones: ["Perdida de voz", "Dolor en pies", "Palpitaciones"],
+    respuestaCorrecta: "Palpitaciones",
   },
   {
-    pregunta: "¿Qué lenguaje se usa en React?",
-    opciones: ["Python", "Java", "JavaScript"],
-    respuestaCorrecta: "JavaScript",
+    pregunta: "¿Cuál de los siguientes es un hábito recomendado para cuidar la salud del corazón?",
+    opciones: ["Consumir alcohol", "Hacer ejercicio", "Fumar a diario"],
+    respuestaCorrecta: "Hacer ejercicio",
   },
 ];
 
@@ -41,7 +41,7 @@ function usePlayerControls() {
 
 // Jugador
 function Jugador({ bodyRef }) {
-  const speed = 0.7;
+  const speed = 0.4;
   const keys = usePlayerControls();
 
   useFrame(() => {
