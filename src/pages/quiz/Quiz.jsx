@@ -152,8 +152,9 @@ export default function Quiz() {
   const handleFinish = async () => {
     const data = {
       userId: user.uid,
-      userName: user.displayName,
+      userName: user.displayName || user.email,
       score: puntaje,
+      totalQuestions: preguntas.length,
       answeredQuestions: preguntas.map((p) => p.pregunta),
     };
     try {
@@ -286,10 +287,9 @@ export default function Quiz() {
           color="green"
           anchorX="center"
         >
-          ¡Quiz Finalizado!
+          Quiz finalizado!
         </Text>
       )}
-
       {/* Mensaje Correcto / Incorrecto */}
       {respuesta && !finalizado && (
         <Text
@@ -305,7 +305,6 @@ export default function Quiz() {
             : "Incorrecto"}
         </Text>
       )}
-
       {finalizado && (
         <>
           <Text
@@ -316,32 +315,42 @@ export default function Quiz() {
           >
             Tu puntaje: {puntaje} de {preguntas.length}
           </Text>
-          {ranking
-            .filter(
-              (entry) => typeof entry.score === "number" && !isNaN(entry.score)
-            )
-            .map((entry, i) => {
-              const height = Math.max(entry.score * 5, 0.5); // altura mínima 0.5
-              return (
-                <group
-                  key={`${entry.userName ?? "user"}-${i}`}
-                  position={[i * 2 - (ranking.length - 1), 0, 2]} // centramos horizontalmente
+          {/* Medallero 3D: siempre muestra 3 podios, aunque falten usuarios */}
+          {Array.from({ length: 3 }).map((_, i) => {
+            const entry = ranking[i];
+            const height = entry && typeof entry.score === "number" && !isNaN(entry.score)
+              ? Math.max(entry.score * 3, 1)
+              : 1;
+            const colors = ["#FFD700", "#C0C0C0", "#CD7F32"];
+            const isCurrentUser = entry && user && entry.userId === user.uid;
+            return (
+              <group
+                key={`podio-${i}`}
+                position={[i * 3 - 3, 0, 2]}
+              >
+                <mesh position={[0, height / 2, 0]} castShadow>
+                  <boxGeometry args={[1, height, 1]} />
+                  <meshStandardMaterial color={colors[i]} />
+                </mesh>
+                <Text
+                  position={[0, height + 0.5, 0]}
+                  fontSize={0.4}
+                  anchorX="center"
+                  color={isCurrentUser ? "blue" : "black"}
                 >
-                  <mesh position={[0, height / 2, 0]} castShadow>
-                    <boxGeometry args={[1, height, 1]} />
-                    <meshStandardMaterial color="#FFD700" />
-                  </mesh>
-                  <Text
-                    position={[0, height + 0.5, 0]}
-                    fontSize={0.3}
-                    anchorX="center"
-                    color="black"
-                  >
-                    {entry.userName}
-                  </Text>
-                </group>
-              );
-            })}
+                  {entry && entry.userName ? entry.userName : ""}
+                </Text>
+                <Text
+                  position={[0, height + 1, 0]}
+                  fontSize={0.3}
+                  anchorX="center"
+                  color="black"
+                >
+                  {entry && typeof entry.score === "number" ? `Puntaje: ${entry.score}` : ""}
+                </Text>
+              </group>
+            );
+          })}
           <mesh position={[0, -2, 4]}>
             <Html>
               <button

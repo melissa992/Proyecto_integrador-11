@@ -4,8 +4,7 @@ const cors = require("cors");
 const connectDB = require("./database/database");
 const UserDAO = require("./dao/UserDao");
 const mongoose = require("mongoose");
-
-
+const UserProgress = require("./models/UserProgress.js");
 
 // Connect to database
 connectDB();
@@ -17,6 +16,7 @@ dotenv.config();
 const app = express();
 
 const quiz = require("./routes/Quiz");
+const progressRoutes = require("./routes/progressRoutes.js");
 // Middlewares
 app.use(express.json()); // Parse JSON requests
 app.use(cors({           // Enable CORS with configuration
@@ -28,6 +28,9 @@ app.use(cors({           // Enable CORS with configuration
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
+
+// Rutas de progreso y leaderboard
+app.use("/api", progressRoutes);
 
 // Instantiate UserDAO
 const userDAO = new UserDAO();

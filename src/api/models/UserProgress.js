@@ -1,7 +1,7 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
 const userProgressSchema = new mongoose.Schema({
-  userId: { type: String, required: true, unique: true },
+  userId: { type: String, required: true },
   userName: { type: String },
   score: { type: Number, required: true },
   totalQuestions: { type: Number },
@@ -9,4 +9,4 @@ const userProgressSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now }
 });
 
-export default mongoose.model('UserProgress', userProgressSchema);
+module.exports = mongoose.model('UserProgress', userProgressSchema);
