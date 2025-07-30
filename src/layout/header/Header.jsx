@@ -41,7 +41,9 @@ const Header = ({ user }) => {
         <div className="nav-right">
           {user ? (
             <>
-              <span className="navlink usuario-nombre">{user.displayName}</span>
+              <span className="navlink usuario-nombre">
+                {user.displayName ? user.displayName.trim().split(/\s+/)[0] : "Usuario"}
+              </span>
               <NavLink onClick={handleLogout} className="navlink">
                 Cerrar sesión
               </NavLink>

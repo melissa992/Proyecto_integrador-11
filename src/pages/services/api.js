@@ -1,7 +1,7 @@
 const API_URL = import.meta.env.VITE_API_BASE_URL;
 
 export async function saveUserProgress(data) {
-  const res = await fetch(`${API_URL}/progress`, {
+  const res = await fetch(`${API_URL}/save`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
