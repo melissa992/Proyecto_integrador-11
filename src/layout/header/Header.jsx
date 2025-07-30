@@ -1,22 +1,21 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { signOut } from "firebase/auth";
+import { auth, provider } from "../../firebase/firebase"; // Ajusta esta ruta según donde tengas el archivo de configuración
 import "./Header.css";
 
-
-const Header = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-  };
-
-  const handleLogin = () => {
-    setIsAuthenticated(true);
+const Header = ({ user }) => {
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      // Opcional: aquí puedes agregar redirección o notificaciones
+    } catch (error) {
+      console.error("Error al cerrar sesión:", error);
+    }
   };
 
   return (
     <header>
-      <nav>
+      <nav className="nav-container">
         <img src="/cm.png" alt="CM Software" className="logo" />
         <NavLink to="/inicio" end className="navlink">
           Inicio
@@ -38,14 +37,25 @@ const Header = () => {
         <NavLink to="sobre-nosotros" end className="navlink">
           Sobre nosotros
         </NavLink>
-        <NavLink
-          to="/iniciar-sesion"
-          end
-          className="navlink iniciar-sesion"
-          onClick={handleLogin}
-        >
-          Iniciar Sesión / Registrarse
-        </NavLink>
+
+        <div className="nav-right">
+          {user ? (
+            <>
+              <span className="navlink usuario-nombre">{user.displayName}</span>
+              <NavLink onClick={handleLogout} className="navlink">
+                Cerrar sesión
+              </NavLink>
+            </>
+          ) : (
+            <NavLink
+              to="/iniciar-sesion"
+              end
+              className="navlink iniciar-sesion"
+            >
+              Iniciar Sesión
+            </NavLink>
+          )}
+        </div>
       </nav>
     </header>
   );
