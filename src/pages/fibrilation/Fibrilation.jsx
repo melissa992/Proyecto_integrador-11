@@ -119,7 +119,7 @@ const Model = ({ path, animate = false, label = "Modelo 3D" }) => {
           bevelThickness={0.01}
           bevelSize={0.005}
           bevelSegments={4}
-          position={[-0.7, 0.6, -0.2]}    // Ligeramente al frente
+          position={[-0.7, 0.8, -0.2]}    // Ligeramente al frente
         >
           {label}
           <meshStandardMaterial color="white"  metalness={1} roughness={1}/>
@@ -133,7 +133,7 @@ const Model = ({ path, animate = false, label = "Modelo 3D" }) => {
           outlineWidth={0.02}
           anchorX="center"
           anchorY="top"
-          position={[0, -0.1, 0.4]} // ligeramente al frente
+          position={[0, -0.1, 0.7]} // ligeramente al frente
         >
           Mover modelo con W A S D
         </Text>
