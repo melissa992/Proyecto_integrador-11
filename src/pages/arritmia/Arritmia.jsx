@@ -1,7 +1,8 @@
 // Arritmia.jsx (versión ajustada)
 import React, { useEffect, useRef, Suspense, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { OrbitControls, Environment, useGLTF, useAnimations } from "@react-three/drei";
+import { OrbitControls, Environment, useGLTF, useAnimations, KeyboardControls, useKeyboardControls } from "@react-three/drei";
+import { useSpring, a } from '@react-spring/three'; // animación
 import * as THREE from "three";
 import "./Arritmia.css";
 
@@ -39,6 +40,29 @@ const Model = ({ path, animate = false }) => {
   const group = useRef();
   const { scene, animations } = useGLTF(path);
   const { actions } = useAnimations(animations, group);
+  const [rotationPaused, setRotationPaused] = useState(false);
+  const [, getKeys] = useKeyboardControls();
+  const [clicked, setClicked] = useState(false);
+  const [scaleFactor, setScaleFactor] = useState(1);
+
+  // Animación con react-spring (rebote de escala)
+  const { scale } = useSpring({
+    scale: clicked ? scaleFactor * 1.1 : scaleFactor,
+    config: { tension: 300, friction: 10 },
+    onRest: () => {
+      if (clicked) setClicked(false);
+    }
+  });
+
+  useEffect(() => {
+    const box = new THREE.Box3().setFromObject(scene);
+    const size = new THREE.Vector3();
+    box.getSize(size);
+    const maxDimension = Math.max(size.x, size.y, size.z);
+    const targetSize = 3;
+    const factor = targetSize / maxDimension;
+    setScaleFactor(factor);
+  }, [scene]);
 
   useEffect(() => {
     if (animate && actions && Object.keys(actions).length > 0) {
@@ -47,89 +71,79 @@ const Model = ({ path, animate = false }) => {
   }, [actions, animate]);
 
   useFrame(() => {
+    const keys = getKeys();
     if (!animate && group.current) {
-      group.current.rotation.y += 0.005;
+      if (!rotationPaused) {
+        group.current.rotation.y += 0.005;
+      } else {
+        const moveSpeed = 0.05;
+        if (keys.forward) group.current.position.z -= moveSpeed;
+        if (keys.backward) group.current.position.z += moveSpeed;
+        if (keys.left) group.current.position.x -= moveSpeed;
+        if (keys.right) group.current.position.x += moveSpeed;
+        if (keys.up) group.current.position.y += moveSpeed;
+        if (keys.down) group.current.position.y -= moveSpeed;
+      }
     }
   });
 
+  const handleClick = () => {
+    setRotationPaused((prev) => !prev);
+    setClicked(true);
+  };
+
   return (
-    <primitive
+    <a.primitive
       ref={group}
       object={scene}
-      scale={6}
+      scale={scale}
       position={[0, -1, 0]}
+      onClick={handleClick}
     />
   );
 };
 
-const CameraController = () => {
-  const { camera } = useThree();
-  const [orbit, setOrbit] = useState({
-    theta: Math.PI / 6,
-    phi: Math.PI / 3,
-    radius: 6,
-  });
-
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      setOrbit((prev) => {
-        const step = 0.2;
-        switch (e.key) {
-          case "ArrowLeft":
-            return { ...prev, theta: prev.theta - step };
-          case "ArrowRight":
-            return { ...prev, theta: prev.theta + step };
-          case "ArrowUp":
-            return { ...prev, phi: Math.max(0.1, prev.phi - step) };
-          case "ArrowDown":
-            return { ...prev, phi: Math.min(Math.PI - 0.1, prev.phi + step) };
-          default:
-            return prev;
-        }
-      });
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
-  useFrame(() => {
-    const { theta, phi, radius } = orbit;
-    camera.position.set(
-      radius * Math.sin(phi) * Math.sin(theta),
-      radius * Math.cos(phi),
-      radius * Math.sin(phi) * Math.cos(theta)
-    );
-    camera.lookAt(0, 0, 0);
-  });
-
-  return null;
-};
-
 const ModelCard = ({ title, text, model }) => (
   <div className="cards">
-    <ScrollReveal className="canvas-wrapper scroll-3d">
-      <Canvas
-        shadows
-        style={{ width: "100%", height: "300px" }}
-        camera={{ position: [0, 2, 6], fov: 45 }}
-      >
-        <ambientLight intensity={1.2} />
-        <directionalLight position={[5, 10, 5]} intensity={1.5} castShadow />
-        <Suspense fallback={null}>
-          <Environment preset="sunset" background />
-          <Model path={model} />
-          <CameraController />
-          <OrbitControls enableZoom={false} />
-        </Suspense>
-      </Canvas>
-      <div className="scroll-text-3d">
-        navegación por teclado ↑ ← ↓ →
-      </div>
-    </ScrollReveal>
-    <div className="cards-text scroll-3d">
+    <div className="cards-left">
+      <ScrollReveal className="canvas-wrapper scroll-3d">
+        <KeyboardControls
+          map={[
+            { name: "left", keys: ["ArrowLeft", "a"] },
+            { name: "right", keys: ["ArrowRight", "d"] },
+            { name: "up", keys: ["ArrowUp", "w"] },
+            { name: "down", keys: ["ArrowDown", "s"] },
+            { name: "pause", keys: [" "] },
+          ]}
+        >
+          <Canvas
+            shadows
+            style={{ width: "100%", height: "300px" }}
+            camera={{ position: [0, 2, 5], fov: 50 }}
+          >
+            <ambientLight intensity={1.2} />
+            <directionalLight position={[5, 10, 5]} intensity={1.5} castShadow />
+            <Suspense fallback={null}>
+              <Environment preset="park" background />
+              <Model path={model} />
+              <OrbitControls
+                target={[0, 0, 0]}
+                enablePan={false}
+                enableZoom={true}
+                maxPolarAngle={Math.PI / 1.8} // limita hasta dónde puede mirar arriba
+                minPolarAngle={0.2}           // limita hasta dónde puede mirar abajo
+              />
+            </Suspense>
+          </Canvas>
+        </KeyboardControls>
+        <div className="scroll-text-3d">Navegación: W A S D / ↑ ↓ ← → / Espacio (pausar)</div>
+      </ScrollReveal>
+    </div>
+
+    <ScrollReveal className="cards-text cards-right scroll-3d">
       <h2>{title}</h2>
       <p>{text}</p>
-    </div>
+    </ScrollReveal>
   </div>
 );
 
@@ -137,7 +151,7 @@ const Arritmia = () => {
   return (
     <>
       <ScrollReveal className="arritmia-title scroll-3d">
-        <h1 className="scroll-3d arritmia-header-float" style={{ color: "white" }}>
+        <h1 className="arritmia-header-float">
           Enfermedad <br /> Arritmia Cardíaca
         </h1>
       </ScrollReveal>
