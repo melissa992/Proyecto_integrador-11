@@ -10,7 +10,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node src/api/index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "@react-spring/three": "^10.0.1",
